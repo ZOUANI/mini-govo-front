@@ -1,0 +1,46 @@
+<app-product></app-product>
+<div class="card col-md-8 mx-auto  p-md-2">
+    <div class="card-header text-center font-weight-bold">Edit Products</div>
+    <div class="card-body">
+        <div class="row my-1 ">
+            <label>Available Products</label>
+            <select class="form-control" [(ngModel)]="product.reference" (click)="findByreference(product.reference)">
+                <option *ngFor="let p of editableProducts" [ngValue]="p.reference"
+                        value="{{p.reference}}">{{p.reference}}</option>
+            </select>
+        </div>
+
+        <div class="row py-2">
+            <label>label </label>
+            <input type="text" class="form-control" [placeholder]="product.label " [(ngModel)]="product.label ">
+        </div>
+        <div class="row py-2">
+            <label>price</label>
+            <input type="text" class="form-control" [placeholder]="product.price" [(ngModel)]="product.price">
+        </div>
+        <div class="row py-2">
+            <label>imagePath</label>
+            <input type="text" class="form-control" [placeholder]="product.imagePath" [(ngModel)]="product.imagePath">
+        </div>
+        <div class="row py-2">
+            <label>reference</label>
+            <input type="text" class="form-control" [placeholder]="product.reference" [(ngModel)]="product.reference">
+        </div>
+
+        <div class="row m-md-2 p-md-1">
+            <label>categoryProduit</label>
+            <select class="form-control" [(ngModel)]="product.categoryProduitVo.label">
+                <option *ngFor="let p of categoryProduits" [ngValue]="p.label" value="{{p.label}}">{{p.label}}</option>
+            </select>
+        </div>
+        <div class="row m-md-2 p-md-1">
+            <label>mesureUnit</label>
+            <select class="form-control" [(ngModel)]="product.mesureUnitVo.label">
+                <option *ngFor="let p of mesureUnits" [ngValue]="p.label" value="{{p.label}}">{{p.label}}</option>
+            </select>
+        </div>
+        <div class="card-footer">
+            <button class="form-control" (click)="editProduct()">Edit</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,135 @@
+<app-orderLine></app-orderLine>
+<div class="card col-md-8 mx-auto  p-md-2">
+    <div class="card-header text-center font-weight-bold">Create OrderLines</div>
+    <div class="card-body">
+
+        <div class="row py-2">
+            <div class="p-grid ui-fluid">
+                <label>dateAcceptationCollaborator</label>
+                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                            [(ngModel)]="orderLine.dateAcceptationCollaborator"></p-calendar>
+            </div>
+        </div>
+        <div class="row py-2">
+            <div class="p-grid ui-fluid">
+                <label>datePreparationCollaborator</label>
+                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                            [(ngModel)]="orderLine.datePreparationCollaborator"></p-calendar>
+            </div>
+        </div>
+        <div class="row py-2">
+            <div class="p-grid ui-fluid">
+                <label>dateRecuperationDelivery</label>
+                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                            [(ngModel)]="orderLine.dateRecuperationDelivery"></p-calendar>
+            </div>
+        </div>
+        <div class="row py-2">
+            <label>rejectionReason</label>
+            <input type="text" class="form-control" [(ngModel)]="orderLine.rejectionReason">
+        </div>
+        <div class="row py-2">
+            <label>description</label>
+            <input type="text" class="form-control" [(ngModel)]="orderLine.description">
+        </div>
+        <div class="row py-2">
+            <div class="p-grid ui-fluid">
+                <label>dateSubmissionToCollaborator</label>
+                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                            [(ngModel)]="orderLine.dateSubmissionToCollaborator"></p-calendar>
+            </div>
+        </div>
+        <div class="row py-2">
+            <label>longitudeCollaborator</label>
+            <input type="text" class="form-control" [(ngModel)]="orderLine.longitudeCollaborator">
+        </div>
+        <div class="row py-2">
+            <label>latitudeCollaborator</label>
+            <input type="text" class="form-control" [(ngModel)]="orderLine.latitudeCollaborator">
+        </div>
+        <div class="row py-2">
+            <div class="p-grid ui-fluid">
+                <label>dateRejectionCllaborator</label>
+                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                            [(ngModel)]="orderLine.dateRejectionCllaborator"></p-calendar>
+            </div>
+        </div>
+        <div class="row py-2">
+            <div class="p-grid ui-fluid">
+                <label>dateRejectionDelivery</label>
+                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                            [(ngModel)]="orderLine.dateRejectionDelivery"></p-calendar>
+            </div>
+        </div>
+        <div class="row py-2">
+            <div class="p-grid ui-fluid">
+                <label>dateSubmissionDelivery</label>
+                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                            [(ngModel)]="orderLine.dateSubmissionDelivery"></p-calendar>
+            </div>
+        </div>
+        <div class="row py-2">
+            <div class="p-grid ui-fluid">
+                <label>dateAcceptationDelivery</label>
+                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                            [(ngModel)]="orderLine.dateAcceptationDelivery"></p-calendar>
+            </div>
+        </div>
+        <div class="row py-2">
+            <label>dateDelivery</label>
+            <input type="text" class="form-control" [(ngModel)]="orderLine.dateDelivery">
+        </div>
+        <div class="row py-2">
+            <label>preparedQte</label>
+            <input type="text" class="form-control" [(ngModel)]="orderLine.preparedQte">
+        </div>
+        <div class="row py-2">
+            <label>sentQte</label>
+            <input type="text" class="form-control" [(ngModel)]="orderLine.sentQte">
+        </div>
+        <div class="row py-2">
+            <label>price</label>
+            <input type="text" class="form-control" [(ngModel)]="orderLine.price">
+        </div>
+        <div class="row py-2">
+            <label>orderedQte</label>
+            <input type="text" class="form-control" [(ngModel)]="orderLine.orderedQte">
+        </div>
+
+        <div class="row">
+            <label>orderStatus </label>
+            <select class="form-control" [(ngModel)]="orderLine.orderStatusVo.code">
+                <option *ngFor="let p of orderStatuss" [ngValue]="p.code" value="{{p.code}}">{{p.code}}</option>
+            </select>
+        </div>
+        <div class="row">
+            <label>deliveryMan</label>
+            <select class="form-control" [(ngModel)]="orderLine.deliveryManVo.id">
+                <option *ngFor="let p of deliveryMans" [ngValue]="p.id" value="{{p.id}}">{{p.id}}</option>
+            </select>
+        </div>
+        <div class="row">
+            <label>collaborator</label>
+            <select class="form-control" [(ngModel)]="orderLine.collaboratorVo.id">
+                <option *ngFor="let p of collaborators" [ngValue]="p.id" value="{{p.id}}">{{p.id}}</option>
+            </select>
+        </div>
+        <div class="row">
+            <label>command</label>
+            <select class="form-control" [(ngModel)]="orderLine.commandVo.reference">
+                <option *ngFor="let p of commands" [ngValue]="p.reference"
+                        value="{{p.reference}}">{{p.reference}}</option>
+            </select>
+        </div>
+        <div class="row">
+            <label>product</label>
+            <select class="form-control" [(ngModel)]="orderLine.productVo.reference">
+                <option *ngFor="let p of products" [ngValue]="p.reference"
+                        value="{{p.reference}}">{{p.reference}}</option>
+            </select>
+        </div>
+        <div class="modal-footer">
+            <button class="form-control" (click)="saveOrderLine()">Save</button>
+        </div>
+    </div>
+</div>

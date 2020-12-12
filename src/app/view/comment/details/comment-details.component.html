@@ -1,0 +1,43 @@
+<div class="modal" tabindex="-1" role="dialog" style="display: block;background-color: #000000bf;">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">details of Comment </h5>
+                <button type="button" class="close" aria-label="Close" (click)="detailHide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-hover">
+                    <thead class="thead-dark">
+                    <th>Field</th>
+                    <th>Value</th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>id</td>
+                        <td>{{commentDetail.id}} </td>
+                    </tr>
+                    <tr>
+                        <td>message</td>
+                        <td>{{commentDetail.message}} </td>
+                    </tr>
+                    <tr>
+                        <td>commentDate</td>
+                        <td>{{commentDetail.commentDate}} </td>
+                    </tr>
+                    <tr>
+                        <td>command</td>
+                        <td>{{commentDetail.commandVo.reference}} </td>
+                    </tr>
+                    <tr>
+                        <td>user</td>
+                        <td>{{commentDetail.userVo.id}} </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

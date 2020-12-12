@@ -1,0 +1,129 @@
+<div class="modal" tabindex="-1" role="dialog" style="display: block;background-color: #000000bf;">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">details of Command </h5>
+                <button type="button" class="close" aria-label="Close" (click)="detailHide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-hover">
+                    <thead class="thead-dark">
+                    <th>Field</th>
+                    <th>Value</th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>id</td>
+                        <td>{{commandDetail.id}} </td>
+                    </tr>
+                    <tr>
+                        <td>reference</td>
+                        <td>{{commandDetail.reference}} </td>
+                    </tr>
+                    <tr>
+                        <td>orderDate</td>
+                        <td>{{commandDetail.orderDate}} </td>
+                    </tr>
+                    <tr>
+                        <td>address</td>
+                        <td>{{commandDetail.address}} </td>
+                    </tr>
+                    <tr>
+                        <td>city</td>
+                        <td>{{commandDetail.cityVo.name}} </td>
+                    </tr>
+                    <tr>
+                        <td>orderStatus</td>
+                        <td>{{commandDetail.orderStatusVo.code}} </td>
+                    </tr>
+                    <tr>
+                        <td>orderLines</td>
+                        <td>
+                            <ul>
+                                <li *ngFor="let p of commandDetail.orderLinesVo">
+
+                                    {{p.id}}
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>total</td>
+                        <td>{{commandDetail.total}} </td>
+                    </tr>
+                    <tr>
+                        <td>remark</td>
+                        <td>{{commandDetail.remark}} </td>
+                    </tr>
+                    <tr>
+                        <td>dayCommand</td>
+                        <td>{{commandDetail.dayCommand}} </td>
+                    </tr>
+                    <tr>
+                        <td>monthCommand</td>
+                        <td>{{commandDetail.monthCommand}} </td>
+                    </tr>
+                    <tr>
+                        <td>yearCommand</td>
+                        <td>{{commandDetail.yearCommand}} </td>
+                    </tr>
+                    <tr>
+                        <td>regulationDate</td>
+                        <td>{{commandDetail.regulationDate}} </td>
+                    </tr>
+                    <tr>
+                        <td>nbrTotalComment</td>
+                        <td>{{commandDetail.nbrTotalComment}} </td>
+                    </tr>
+                    <tr>
+                        <td>commentResolution</td>
+                        <td>{{commandDetail.commentResolution}} </td>
+                    </tr>
+                    <tr>
+                        <td>commentResolutionDate</td>
+                        <td>{{commandDetail.commentResolutionDate }} </td>
+                    </tr>
+                    <tr>
+                        <td>longitudeDelivery</td>
+                        <td>{{commandDetail.longitudeDelivery}} </td>
+                    </tr>
+                    <tr>
+                        <td>latitudeDelivery</td>
+                        <td>{{commandDetail.latitudeDelivery}} </td>
+                    </tr>
+                    <tr>
+                        <td>comments</td>
+                        <td>
+                            <ul>
+                                <li *ngFor="let p of commandDetail.commentsVo">
+
+                                    {{p.id}}
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>client</td>
+                        <td>{{commandDetail.clientVo.id}} </td>
+                    </tr>
+                    <tr>
+                        <td>admin</td>
+                        <td>{{commandDetail.adminVo.id}} </td>
+                    </tr>
+                    <tr>
+                        <td>deliveryMan</td>
+                        <td>{{commandDetail.deliveryManVo.id}} </td>
+                    </tr>
+                    <tr>
+                        <td>dateSubmission</td>
+                        <td>{{commandDetail.dateSubmission}} </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

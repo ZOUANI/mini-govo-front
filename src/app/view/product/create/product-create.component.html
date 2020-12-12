@@ -1,0 +1,39 @@
+<app-product></app-product>
+<div class="card col-md-8 mx-auto  p-md-2">
+    <div class="card-header text-center font-weight-bold">Create Products</div>
+    <div class="card-body">
+
+        <div class="row py-2">
+            <label>label </label>
+            <input type="text" class="form-control" [(ngModel)]="product.label ">
+        </div>
+        <div class="row py-2">
+            <label>price</label>
+            <input type="text" class="form-control" [(ngModel)]="product.price">
+        </div>
+        <div class="row py-2">
+            <label>imagePath</label>
+            <input type="text" class="form-control" [(ngModel)]="product.imagePath">
+        </div>
+        <div class="row py-2">
+            <label>reference</label>
+            <input type="text" class="form-control" [(ngModel)]="product.reference">
+        </div>
+
+        <div class="row">
+            <label>categoryProduit</label>
+            <select class="form-control" [(ngModel)]="product.categoryProduitVo.label">
+                <option *ngFor="let p of categoryProduits" [ngValue]="p.label" value="{{p.label}}">{{p.label}}</option>
+            </select>
+        </div>
+        <div class="row">
+            <label>mesureUnit</label>
+            <select class="form-control" [(ngModel)]="product.mesureUnitVo.label">
+                <option *ngFor="let p of mesureUnits" [ngValue]="p.label" value="{{p.label}}">{{p.label}}</option>
+            </select>
+        </div>
+        <div class="modal-footer">
+            <button class="form-control" (click)="saveProduct()">Save</button>
+        </div>
+    </div>
+</div>

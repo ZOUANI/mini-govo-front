@@ -1,0 +1,46 @@
+<div class="modal" tabindex="-1" role="dialog" style="display: block;background-color: #000000bf;">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">edit Comment </h5>
+                <button type="button" class="close" aria-label="Close" (click)="editHide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card col-md-12 mx-auto  p-md-2">
+
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 py-2">
+                                <label>commentDate</label>
+                                <input type="date" class="col-md-12" [(ngModel)]="comment.commentDate">
+                            </div>
+                            <div class="col-md-6 py-2">
+                                <label>message</label>
+                                <input type="text" class="form-control" [placeholder]="comment.message"
+                                       [(ngModel)]="comment.message">
+                            </div>
+                        </div>
+                        <div class="row m-md-2 p-md-1">
+                            <label>user</label>
+                            <select class="form-control" [(ngModel)]="comment.userVo.id">
+                                <option *ngFor="let p of users" [ngValue]="p.id" value="{{p.id}}">{{p.id}}</option>
+                            </select>
+                        </div>
+                        <div class="row m-md-2 p-md-1">
+                            <label>command</label>
+                            <select class="form-control" [(ngModel)]="comment.commandVo.reference">
+                                <option *ngFor="let p of commands" [ngValue]="p.reference"
+                                        value="{{p.reference}}">{{p.reference}}</option>
+                            </select>
+                        </div>
+                        <div class="card-footer">
+                            <button class="form-control" (click)="editComment()">Edit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

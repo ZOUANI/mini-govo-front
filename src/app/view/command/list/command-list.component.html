@@ -1,0 +1,317 @@
+<app-command></app-command>
+
+<div class="container">
+    <div class="row">
+        <div id="accordion" class="col-12 my-3">
+            <div class="card">
+                <div class="card-header border-0 bg-white" id="headingSearch">
+
+                    <button class="btn btn-info  btn-sm fa fa-filter" data-toggle="collapse" data-target="#search"
+                            aria-expanded="true" aria-controls="search">
+                        <h5 class="float-right">Search Forms</h5>
+                    </button>
+
+                </div>
+
+                <div id="search" class="collapse" aria-labelledby="headingSearch" data-parent="#accordion">
+                    <div class="card-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="form-row">
+
+                                    <div class="input-group  col-3  my-2">
+                                        <small class="text-muted col-12">id</small>
+                                        <input type="text" class="form-control col-12" placeholder="id"
+                                               [(ngModel)]="commandSearch.id">
+                                    </div>
+                                    <div class="input-group  col-3  my-2">
+                                        <small class="text-muted col-12">reference</small>
+                                        <input type="text" class="form-control col-12" placeholder="reference"
+                                               [(ngModel)]="commandSearch.reference">
+                                    </div>
+                                    <div class="input-group  col-4  my-2">
+                                        <div class="col-5 mx-1 px-1">
+                                            <div class="p-grid ui-fluid">
+                                                <small class="text-muted">orderDate Min</small>
+                                                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                                            [(ngModel)]="commandSearch.orderDateMin"></p-calendar>
+                                            </div>
+                                        </div>
+                                        <div class="col-5 mx-1 px-1">
+                                            <div class="p-grid ui-fluid">
+                                                <small class="text-muted">orderDate Max</small>
+                                                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                                            [(ngModel)]="commandSearch.orderDateMax"></p-calendar>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="input-group  col-3  my-2">
+                                        <small class="text-muted col-12">address</small>
+                                        <input type="text" class="form-control col-12" placeholder="address"
+                                               [(ngModel)]="commandSearch.address">
+                                    </div>
+                                    <div class="input-group  col-4 my-2">
+                                        <small class="text-muted col-12">city</small>
+                                        <select class="form-control col-12" [(ngModel)]="commandSearch.cityVo">
+                                            <option *ngFor="let p of citys" [ngValue]="p">{{p.name}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group  col-4 my-2">
+                                        <small class="text-muted col-12">orderStatus</small>
+                                        <select class="form-control col-12" [(ngModel)]="commandSearch.orderStatusVo">
+                                            <option *ngFor="let p of orderStatuss" [ngValue]="p">{{p.code}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group  col-4  my-2">
+                                        <div class="col-5  mx-1 px-1">
+                                            <small class="text-muted">total Min</small>
+                                            <input type="text" class="form-control" placeholder="Min total"
+                                                   [(ngModel)]="commandSearch.totalMin">
+                                        </div>
+                                        <div class="col-5  mx-1 px-1 ">
+                                            <small class="text-muted">total Min</small>
+                                            <input type="text" class="form-control" placeholder="Max total"
+                                                   [(ngModel)]="commandSearch.totalMax">
+                                        </div>
+                                    </div>
+                                    <div class="input-group  col-3  my-2">
+                                        <small class="text-muted col-12">remark</small>
+                                        <input type="text" class="form-control col-12" placeholder="remark"
+                                               [(ngModel)]="commandSearch.remark">
+                                    </div>
+                                    <div class="input-group  col-4  my-2">
+                                        <div class="col-5  mx-1 px-1">
+                                            <small class="text-muted">dayCommand Min</small>
+                                            <input type="text" class="form-control" placeholder="Min dayCommand"
+                                                   [(ngModel)]="commandSearch.dayCommandMin">
+                                        </div>
+                                        <div class="col-5  mx-1 px-1 ">
+                                            <small class="text-muted">dayCommand Min</small>
+                                            <input type="text" class="form-control" placeholder="Max dayCommand"
+                                                   [(ngModel)]="commandSearch.dayCommandMax">
+                                        </div>
+                                    </div>
+                                    <div class="input-group  col-4  my-2">
+                                        <div class="col-5  mx-1 px-1">
+                                            <small class="text-muted">monthCommand Min</small>
+                                            <input type="text" class="form-control" placeholder="Min monthCommand"
+                                                   [(ngModel)]="commandSearch.monthCommandMin">
+                                        </div>
+                                        <div class="col-5  mx-1 px-1 ">
+                                            <small class="text-muted">monthCommand Min</small>
+                                            <input type="text" class="form-control" placeholder="Max monthCommand"
+                                                   [(ngModel)]="commandSearch.monthCommandMax">
+                                        </div>
+                                    </div>
+                                    <div class="input-group  col-4  my-2">
+                                        <div class="col-5  mx-1 px-1">
+                                            <small class="text-muted">yearCommand Min</small>
+                                            <input type="text" class="form-control" placeholder="Min yearCommand"
+                                                   [(ngModel)]="commandSearch.yearCommandMin">
+                                        </div>
+                                        <div class="col-5  mx-1 px-1 ">
+                                            <small class="text-muted">yearCommand Min</small>
+                                            <input type="text" class="form-control" placeholder="Max yearCommand"
+                                                   [(ngModel)]="commandSearch.yearCommandMax">
+                                        </div>
+                                    </div>
+                                    <div class="input-group  col-4  my-2">
+                                        <div class="col-5 mx-1 px-1">
+                                            <div class="p-grid ui-fluid">
+                                                <small class="text-muted">regulationDate Min</small>
+                                                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                                            [(ngModel)]="commandSearch.regulationDateMin"></p-calendar>
+                                            </div>
+                                        </div>
+                                        <div class="col-5 mx-1 px-1">
+                                            <div class="p-grid ui-fluid">
+                                                <small class="text-muted">regulationDate Max</small>
+                                                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                                            [(ngModel)]="commandSearch.regulationDateMax"></p-calendar>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="input-group  col-4  my-2">
+                                        <div class="col-5  mx-1 px-1">
+                                            <small class="text-muted">nbrTotalComment Min</small>
+                                            <input type="text" class="form-control" placeholder="Min nbrTotalComment"
+                                                   [(ngModel)]="commandSearch.nbrTotalCommentMin">
+                                        </div>
+                                        <div class="col-5  mx-1 px-1 ">
+                                            <small class="text-muted">nbrTotalComment Min</small>
+                                            <input type="text" class="form-control" placeholder="Max nbrTotalComment"
+                                                   [(ngModel)]="commandSearch.nbrTotalCommentMax">
+                                        </div>
+                                    </div>
+                                    <div class="input-group  col-3  my-2">
+                                        <small class="text-muted col-12">commentResolution</small>
+                                        <input type="text" class="form-control col-12" placeholder="commentResolution"
+                                               [(ngModel)]="commandSearch.commentResolution">
+                                    </div>
+                                    <div class="input-group  col-4  my-2">
+                                        <div class="col-5 mx-1 px-1">
+                                            <div class="p-grid ui-fluid">
+                                                <small class="text-muted">commentResolutionDate Min</small>
+                                                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                                            [(ngModel)]="commandSearch.commentResolutionDateMin"></p-calendar>
+                                            </div>
+                                        </div>
+                                        <div class="col-5 mx-1 px-1">
+                                            <div class="p-grid ui-fluid">
+                                                <small class="text-muted">commentResolutionDate Max</small>
+                                                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                                            [(ngModel)]="commandSearch.commentResolutionDateMax"></p-calendar>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="input-group  col-4  my-2">
+                                        <div class="col-5  mx-1 px-1">
+                                            <small class="text-muted">longitudeDelivery Min</small>
+                                            <input type="text" class="form-control" placeholder="Min longitudeDelivery"
+                                                   [(ngModel)]="commandSearch.longitudeDeliveryMin">
+                                        </div>
+                                        <div class="col-5  mx-1 px-1 ">
+                                            <small class="text-muted">longitudeDelivery Min</small>
+                                            <input type="text" class="form-control" placeholder="Max longitudeDelivery"
+                                                   [(ngModel)]="commandSearch.longitudeDeliveryMax">
+                                        </div>
+                                    </div>
+                                    <div class="input-group  col-4  my-2">
+                                        <div class="col-5  mx-1 px-1">
+                                            <small class="text-muted">latitudeDelivery Min</small>
+                                            <input type="text" class="form-control" placeholder="Min latitudeDelivery"
+                                                   [(ngModel)]="commandSearch.latitudeDeliveryMin">
+                                        </div>
+                                        <div class="col-5  mx-1 px-1 ">
+                                            <small class="text-muted">latitudeDelivery Min</small>
+                                            <input type="text" class="form-control" placeholder="Max latitudeDelivery"
+                                                   [(ngModel)]="commandSearch.latitudeDeliveryMax">
+                                        </div>
+                                    </div>
+                                    <div class="input-group  col-4 my-2">
+                                        <small class="text-muted col-12">client</small>
+                                        <select class="form-control col-12" [(ngModel)]="commandSearch.clientVo">
+                                            <option *ngFor="let p of clients" [ngValue]="p">{{p.id}}</option>
+                                        </select>
+
+                                    </div>
+                                    <div class="input-group  col-4 my-2">
+                                        <small class="text-muted col-12">admin</small>
+                                        <select class="form-control col-12" [(ngModel)]="commandSearch.adminVo">
+                                            <option *ngFor="let p of admins" [ngValue]="p">{{p.id}}</option>
+                                        </select>
+
+                                    </div>
+                                    <div class="input-group  col-4 my-2">
+                                        <small class="text-muted col-12">deliveryMan</small>
+                                        <select class="form-control col-12" [(ngModel)]="commandSearch.deliveryManVo">
+                                            <option *ngFor="let p of deliveryMans" [ngValue]="p">{{p.id}}</option>
+                                        </select>
+
+                                    </div>
+                                    <div class="input-group  col-4  my-2">
+                                        <div class="col-5 mx-1 px-1">
+                                            <div class="p-grid ui-fluid">
+                                                <small class="text-muted">dateSubmission Min</small>
+                                                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                                            [(ngModel)]="commandSearch.dateSubmissionMin"></p-calendar>
+                                            </div>
+                                        </div>
+                                        <div class="col-5 mx-1 px-1">
+                                            <div class="p-grid ui-fluid">
+                                                <small class="text-muted">dateSubmission Max</small>
+                                                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                                            [(ngModel)]="commandSearch.dateSubmissionMax"></p-calendar>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-info btn-sm fa fa-search float-right px-5 py-2 my-4"
+                                    (click)="findCommand(commandSearch)"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="card col-12">
+            <div class="card-header bg-transparent">
+                <div class="float-left px-1"><h5>List of commands. </h5></div>
+
+            </div>
+            <div class="card-body table-responsive">
+
+                <table class="table table-hover col-md-12">
+                    <thead class="thead-dark">
+
+                    <th>id</th>
+                    <th>reference</th>
+                    <th>orderDate</th>
+                    <th>address</th>
+                    <th>city reference</th>
+                    <th>orderStatus reference</th>
+                    <th>total</th>
+                    <th>remark</th>
+                    <th>dayCommand</th>
+                    <th>monthCommand</th>
+                    <th>yearCommand</th>
+                    <th>regulationDate</th>
+                    <th>nbrTotalComment</th>
+                    <th>commentResolution</th>
+                    <th>commentResolutionDate</th>
+                    <th>longitudeDelivery</th>
+                    <th>latitudeDelivery</th>
+                    <th>client id</th>
+                    <th>admin id</th>
+                    <th>deliveryMan id</th>
+                    <th>dateSubmission</th>
+                    <th>Actions</th>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let p of commandListe">
+
+                        <td>{{p.id}}</td>
+                        <td>{{p.reference}}</td>
+                        <td>{{p.orderDate}}</td>
+                        <td>{{p.address}}</td>
+                        <td>{{p.cityVo?.name}}</td>
+                        <td>{{p.orderStatusVo?.code}}</td>
+                        <td>{{p.total}}</td>
+                        <td>{{p.remark}}</td>
+                        <td>{{p.dayCommand}}</td>
+                        <td>{{p.monthCommand}}</td>
+                        <td>{{p.yearCommand}}</td>
+                        <td>{{p.regulationDate}}</td>
+                        <td>{{p.nbrTotalComment}}</td>
+                        <td>{{p.commentResolution}}</td>
+                        <td>{{p.commentResolutionDate }}</td>
+                        <td>{{p.longitudeDelivery}}</td>
+                        <td>{{p.latitudeDelivery}}</td>
+                        <td>{{p.clientVo?.id}}</td>
+                        <td>{{p.adminVo?.id}}</td>
+                        <td>{{p.deliveryManVo?.id}}</td>
+                        <td>{{p.dateSubmission}}</td>
+
+
+                        <td>
+                            <button class="btn btn-danger btn-sm fa fa-trash mx-md-1" (click)="delete(p)"></button>
+                            <button class="btn btn-warning btn-sm fa fa-external-link mx-md-1"
+                                    (click)="detailShow(p)"></button>
+
+
+                        </td>
+
+                    </tr>
+                    <app-command-details *ngIf="commandShowDetail"></app-command-details>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

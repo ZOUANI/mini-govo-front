@@ -1,0 +1,43 @@
+<app-rating></app-rating>
+<div class="card col-md-8 mx-auto  p-md-2">
+    <div class="card-header text-center font-weight-bold">Edit Ratings</div>
+    <div class="card-body">
+        <div class="row my-1 ">
+            <label>Available Ratings</label>
+            <select class="form-control" [(ngModel)]="rating.id" (click)="findByid(rating.id)">
+                <option *ngFor="let p of editableRatings" [ngValue]="p.id" value="{{p.id}}">{{p.id}}</option>
+            </select>
+        </div>
+
+        <div class="row py-2">
+            <label>comment</label>
+            <input type="text" class="form-control" [placeholder]="rating.comment" [(ngModel)]="rating.comment">
+        </div>
+        <div class="row py-2">
+            <label>mark</label>
+            <input type="text" class="form-control" [placeholder]="rating.mark" [(ngModel)]="rating.mark">
+        </div>
+
+        <div class="row m-md-2 p-md-1">
+            <label>client</label>
+            <select class="form-control" [(ngModel)]="rating.clientVo.id">
+                <option *ngFor="let p of clients" [ngValue]="p.id" value="{{p.id}}">{{p.id}}</option>
+            </select>
+        </div>
+        <div class="row m-md-2 p-md-1">
+            <label>orderLine</label>
+            <select class="form-control" [(ngModel)]="rating.orderLineVo.id">
+                <option *ngFor="let p of orderLines" [ngValue]="p.id" value="{{p.id}}">{{p.id}}</option>
+            </select>
+        </div>
+        <div class="row m-md-2 p-md-1">
+            <label>collaborator</label>
+            <select class="form-control" [(ngModel)]="rating.collaboratorVo.id">
+                <option *ngFor="let p of collaborators" [ngValue]="p.id" value="{{p.id}}">{{p.id}}</option>
+            </select>
+        </div>
+        <div class="card-footer">
+            <button class="form-control" (click)="editRating()">Edit</button>
+        </div>
+    </div>
+</div>

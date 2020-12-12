@@ -1,0 +1,60 @@
+import {UserVo} from './User.model';
+import {CommandVo} from './Command.model';
+import {ProductVo} from './Product.model';
+import {OrderStatusVo} from './OrderStatus.model';
+
+export class OrderLineVo {
+    public dateAcceptationCollaborator: string;
+    public datePreparationCollaborator: string;
+    public dateRecuperationDelivery: string;
+    public rejectionReason: string;
+    public description: string;
+    public dateSubmissionToCollaborator: string;
+    public longitudeCollaborator: string;
+    public latitudeCollaborator: string;
+    public dateRejectionCllaborator: string;
+    public dateRejectionDelivery: string;
+    public dateSubmissionDelivery: string;
+    public dateAcceptationDelivery: string;
+    public dateDelivery: string;
+    public preparedQte: string;
+    public sentQte: string;
+    public price: string;
+    public id: string;
+    public orderedQte: string;
+    public dateAcceptationCollaboratorMax: string;
+    public dateAcceptationCollaboratorMin: string;
+    public datePreparationCollaboratorMax: string;
+    public datePreparationCollaboratorMin: string;
+    public dateRecuperationDeliveryMax: string;
+    public dateRecuperationDeliveryMin: string;
+    public dateSubmissionToCollaboratorMax: string;
+    public dateSubmissionToCollaboratorMin: string;
+    public longitudeCollaboratorMax: string;
+    public longitudeCollaboratorMin: string;
+    public latitudeCollaboratorMax: string;
+    public latitudeCollaboratorMin: string;
+    public dateRejectionCllaboratorMax: string;
+    public dateRejectionCllaboratorMin: string;
+    public dateRejectionDeliveryMax: string;
+    public dateRejectionDeliveryMin: string;
+    public dateSubmissionDeliveryMax: string;
+    public dateSubmissionDeliveryMin: string;
+    public dateAcceptationDeliveryMax: string;
+    public dateAcceptationDeliveryMin: string;
+    public preparedQteMax: string;
+    public preparedQteMin: string;
+    public sentQteMax: string;
+    public sentQteMin: string;
+    public priceMax: string;
+    public priceMin: string;
+    public orderedQteMax: string;
+    public orderedQteMin: string;
+    public orderStatusVo: OrderStatusVo = new OrderStatusVo();
+    public deliveryManVo: UserVo = new UserVo();
+    public collaboratorVo: UserVo = new UserVo();
+    public commandVo: CommandVo = new CommandVo();
+    public productVo: ProductVo = new ProductVo();
+
+
+}

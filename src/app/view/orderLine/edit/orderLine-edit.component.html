@@ -1,0 +1,124 @@
+<app-orderLine></app-orderLine>
+<div class="card col-md-8 mx-auto  p-md-2">
+    <div class="card-header text-center font-weight-bold">Edit OrderLines</div>
+    <div class="card-body">
+        <div class="row my-1 ">
+            <label>Available OrderLines</label>
+            <select class="form-control" [(ngModel)]="orderLine.id" (click)="findByid(orderLine.id)">
+                <option *ngFor="let p of editableOrderLines" [ngValue]="p.id" value="{{p.id}}">{{p.id}}</option>
+            </select>
+        </div>
+
+        <div class="row py-2">
+            <label>dateAcceptationCollaborator</label>
+            <input type="date" class="col-md-12" [(ngModel)]="orderLine.dateAcceptationCollaborator">
+        </div>
+        <div class="row py-2">
+            <label>datePreparationCollaborator</label>
+            <input type="date" class="col-md-12" [(ngModel)]="orderLine.datePreparationCollaborator">
+        </div>
+        <div class="row py-2">
+            <label>dateRecuperationDelivery</label>
+            <input type="date" class="col-md-12" [(ngModel)]="orderLine.dateRecuperationDelivery">
+        </div>
+        <div class="row py-2">
+            <label>rejectionReason</label>
+            <input type="text" class="form-control" [placeholder]="orderLine.rejectionReason"
+                   [(ngModel)]="orderLine.rejectionReason">
+        </div>
+        <div class="row py-2">
+            <label>description</label>
+            <input type="text" class="form-control" [placeholder]="orderLine.description"
+                   [(ngModel)]="orderLine.description">
+        </div>
+        <div class="row py-2">
+            <label>dateSubmissionToCollaborator</label>
+            <input type="date" class="col-md-12" [(ngModel)]="orderLine.dateSubmissionToCollaborator">
+        </div>
+        <div class="row py-2">
+            <label>longitudeCollaborator</label>
+            <input type="text" class="form-control" [placeholder]="orderLine.longitudeCollaborator"
+                   [(ngModel)]="orderLine.longitudeCollaborator">
+        </div>
+        <div class="row py-2">
+            <label>latitudeCollaborator</label>
+            <input type="text" class="form-control" [placeholder]="orderLine.latitudeCollaborator"
+                   [(ngModel)]="orderLine.latitudeCollaborator">
+        </div>
+        <div class="row py-2">
+            <label>dateRejectionCllaborator</label>
+            <input type="date" class="col-md-12" [(ngModel)]="orderLine.dateRejectionCllaborator">
+        </div>
+        <div class="row py-2">
+            <label>dateRejectionDelivery</label>
+            <input type="date" class="col-md-12" [(ngModel)]="orderLine.dateRejectionDelivery">
+        </div>
+        <div class="row py-2">
+            <label>dateSubmissionDelivery</label>
+            <input type="date" class="col-md-12" [(ngModel)]="orderLine.dateSubmissionDelivery">
+        </div>
+        <div class="row py-2">
+            <label>dateAcceptationDelivery</label>
+            <input type="date" class="col-md-12" [(ngModel)]="orderLine.dateAcceptationDelivery">
+        </div>
+        <div class="row py-2">
+            <label>dateDelivery</label>
+            <input type="text" class="form-control" [placeholder]="orderLine.dateDelivery"
+                   [(ngModel)]="orderLine.dateDelivery">
+        </div>
+        <div class="row py-2">
+            <label>preparedQte</label>
+            <input type="text" class="form-control" [placeholder]="orderLine.preparedQte"
+                   [(ngModel)]="orderLine.preparedQte">
+        </div>
+        <div class="row py-2">
+            <label>sentQte</label>
+            <input type="text" class="form-control" [placeholder]="orderLine.sentQte" [(ngModel)]="orderLine.sentQte">
+        </div>
+        <div class="row py-2">
+            <label>price</label>
+            <input type="text" class="form-control" [placeholder]="orderLine.price" [(ngModel)]="orderLine.price">
+        </div>
+        <div class="row py-2">
+            <label>orderedQte</label>
+            <input type="text" class="form-control" [placeholder]="orderLine.orderedQte"
+                   [(ngModel)]="orderLine.orderedQte">
+        </div>
+
+        <div class="row m-md-2 p-md-1">
+            <label>orderStatus </label>
+            <select class="form-control" [(ngModel)]="orderLine.orderStatusVo.code">
+                <option *ngFor="let p of orderStatuss" [ngValue]="p.code" value="{{p.code}}">{{p.code}}</option>
+            </select>
+        </div>
+        <div class="row m-md-2 p-md-1">
+            <label>deliveryMan</label>
+            <select class="form-control" [(ngModel)]="orderLine.deliveryManVo.id">
+                <option *ngFor="let p of deliveryMans" [ngValue]="p.id" value="{{p.id}}">{{p.id}}</option>
+            </select>
+        </div>
+        <div class="row m-md-2 p-md-1">
+            <label>collaborator</label>
+            <select class="form-control" [(ngModel)]="orderLine.collaboratorVo.id">
+                <option *ngFor="let p of collaborators" [ngValue]="p.id" value="{{p.id}}">{{p.id}}</option>
+            </select>
+        </div>
+        <div class="row m-md-2 p-md-1">
+            <label>command</label>
+            <select class="form-control" [(ngModel)]="orderLine.commandVo.reference">
+                <option *ngFor="let p of commands" [ngValue]="p.reference"
+                        value="{{p.reference}}">{{p.reference}}</option>
+            </select>
+        </div>
+        <div class="row m-md-2 p-md-1">
+            <label>product</label>
+            <select class="form-control" [(ngModel)]="orderLine.productVo.reference">
+                <option *ngFor="let p of products" [ngValue]="p.reference"
+                        value="{{p.reference}}">{{p.reference}}</option>
+            </select>
+        </div>
+        <div class="card-footer">
+            <button class="form-control" (click)="editOrderLine()">Edit</button>
+        </div>
+    </div>
+</div>

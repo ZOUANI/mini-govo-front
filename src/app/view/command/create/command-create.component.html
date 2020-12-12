@@ -1,0 +1,334 @@
+<app-command></app-command>
+<div class="card col-md-8 mx-auto  p-md-2">
+    <div class="card-header text-center font-weight-bold">Create Commands</div>
+    <div class="card-body">
+
+        <div class="row py-2">
+            <label>commentResolution</label>
+            <input type="text" class="form-control" [(ngModel)]="command.commentResolution">
+        </div>
+        <div class="row py-2">
+            <div class="p-grid ui-fluid">
+                <label>regulationDate</label>
+                <p-calendar class="p-col-12" dateFormat="yy-mm-dd" [(ngModel)]="command.regulationDate"></p-calendar>
+            </div>
+        </div>
+        <div class="row py-2">
+            <label>longitudeDelivery</label>
+            <input type="text" class="form-control" [(ngModel)]="command.longitudeDelivery">
+        </div>
+        <div class="row py-2">
+            <div class="p-grid ui-fluid">
+                <label>commentResolutionDate </label>
+                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                            [(ngModel)]="command.commentResolutionDate "></p-calendar>
+            </div>
+        </div>
+        <div class="row py-2">
+            <div class="p-grid ui-fluid">
+                <label>dateSubmission</label>
+                <p-calendar class="p-col-12" dateFormat="yy-mm-dd" [(ngModel)]="command.dateSubmission"></p-calendar>
+            </div>
+        </div>
+        <div class="row py-2">
+            <label>nbrTotalComment</label>
+            <input type="text" class="form-control" [(ngModel)]="command.nbrTotalComment">
+        </div>
+        <div class="row py-2">
+            <label>yearCommand</label>
+            <input type="text" class="form-control" [(ngModel)]="command.yearCommand">
+        </div>
+        <div class="row py-2">
+            <label>latitudeDelivery</label>
+            <input type="text" class="form-control" [(ngModel)]="command.latitudeDelivery">
+        </div>
+        <div class="row py-2">
+            <div class="p-grid ui-fluid">
+                <label>orderDate</label>
+                <p-calendar class="p-col-12" dateFormat="yy-mm-dd" [(ngModel)]="command.orderDate"></p-calendar>
+            </div>
+        </div>
+        <div class="row py-2">
+            <label>address</label>
+            <input type="text" class="form-control" [(ngModel)]="command.address">
+        </div>
+        <div class="row py-2">
+            <label>reference</label>
+            <input type="text" class="form-control" [(ngModel)]="command.reference">
+        </div>
+        <div class="row py-2">
+            <label>dayCommand</label>
+            <input type="text" class="form-control" [(ngModel)]="command.dayCommand">
+        </div>
+        <div class="row py-2">
+            <label>monthCommand</label>
+            <input type="text" class="form-control" [(ngModel)]="command.monthCommand">
+        </div>
+        <div class="row py-2">
+            <label>remark</label>
+            <input type="text" class="form-control" [(ngModel)]="command.remark">
+        </div>
+        <div class="row py-2">
+            <label>total</label>
+            <input type="text" class="form-control" [(ngModel)]="command.total">
+        </div>
+
+        <div class="row">
+            <label>admin</label>
+            <select class="form-control" [(ngModel)]="command.adminVo.id">
+                <option *ngFor="let p of admins" [ngValue]="p.id" value="{{p.id}}">{{p.id}}</option>
+            </select>
+        </div>
+        <div class="row">
+            <label>deliveryMan</label>
+            <select class="form-control" [(ngModel)]="command.deliveryManVo.id">
+                <option *ngFor="let p of deliveryMans" [ngValue]="p.id" value="{{p.id}}">{{p.id}}</option>
+            </select>
+        </div>
+        <div class="row">
+            <label>client</label>
+            <select class="form-control" [(ngModel)]="command.clientVo.id">
+                <option *ngFor="let p of clients" [ngValue]="p.id" value="{{p.id}}">{{p.id}}</option>
+            </select>
+        </div>
+        <div class="row">
+            <label>city</label>
+            <select class="form-control" [(ngModel)]="command.cityVo.name">
+                <option *ngFor="let p of citys" [ngValue]="p.name" value="{{p.name}}">{{p.name}}</option>
+            </select>
+        </div>
+        <div class="row">
+            <label>orderStatus</label>
+            <select class="form-control" [(ngModel)]="command.orderStatusVo.code">
+                <option *ngFor="let p of orderStatuss" [ngValue]="p.code" value="{{p.code}}">{{p.code}}</option>
+            </select>
+        </div>
+        <div class="card row">
+            <div class="card-header">Add orderLines</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 py-2">
+                        <div class="p-grid ui-fluid">
+                            <label>dateAcceptationCollaborator</label>
+                            <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                        [(ngModel)]="orderLine.dateAcceptationCollaborator"></p-calendar>
+                        </div>
+                    </div>
+                    <div class="col-md-6 py-2">
+                        <div class="p-grid ui-fluid">
+                            <label>datePreparationCollaborator</label>
+                            <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                        [(ngModel)]="orderLine.datePreparationCollaborator"></p-calendar>
+                        </div>
+                    </div>
+                    <div class="col-md-6 py-2">
+                        <div class="p-grid ui-fluid">
+                            <label>dateRecuperationDelivery</label>
+                            <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                        [(ngModel)]="orderLine.dateRecuperationDelivery"></p-calendar>
+                        </div>
+                    </div>
+                    <div class="col-md-6 py-2"><label>rejectionReason</label>
+                        <input type="text" class="form-control" [(ngModel)]="orderLine.rejectionReason">
+                    </div>
+                    <div class="col-md-6 py-2"><label>description</label>
+                        <input type="text" class="form-control" [(ngModel)]="orderLine.description">
+                    </div>
+                    <div class="col-md-6 py-2">
+                        <div class="p-grid ui-fluid">
+                            <label>dateSubmissionToCollaborator</label>
+                            <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                        [(ngModel)]="orderLine.dateSubmissionToCollaborator"></p-calendar>
+                        </div>
+                    </div>
+                    <div class="col-md-6 py-2"><label>longitudeCollaborator</label>
+                        <input type="text" class="form-control" [(ngModel)]="orderLine.longitudeCollaborator">
+                    </div>
+                    <div class="col-md-6 py-2"><label>latitudeCollaborator</label>
+                        <input type="text" class="form-control" [(ngModel)]="orderLine.latitudeCollaborator">
+                    </div>
+                    <div class="col-md-6 py-2">
+                        <div class="p-grid ui-fluid">
+                            <label>dateRejectionCllaborator</label>
+                            <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                        [(ngModel)]="orderLine.dateRejectionCllaborator"></p-calendar>
+                        </div>
+                    </div>
+                    <div class="col-md-6 py-2">
+                        <div class="p-grid ui-fluid">
+                            <label>dateRejectionDelivery</label>
+                            <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                        [(ngModel)]="orderLine.dateRejectionDelivery"></p-calendar>
+                        </div>
+                    </div>
+                    <div class="col-md-6 py-2">
+                        <div class="p-grid ui-fluid">
+                            <label>dateSubmissionDelivery</label>
+                            <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                        [(ngModel)]="orderLine.dateSubmissionDelivery"></p-calendar>
+                        </div>
+                    </div>
+                    <div class="col-md-6 py-2">
+                        <div class="p-grid ui-fluid">
+                            <label>dateAcceptationDelivery</label>
+                            <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                        [(ngModel)]="orderLine.dateAcceptationDelivery"></p-calendar>
+                        </div>
+                    </div>
+                    <div class="col-md-6 py-2"><label>dateDelivery</label>
+                        <input type="text" class="form-control" [(ngModel)]="orderLine.dateDelivery">
+                    </div>
+                    <div class="col-md-6 py-2"><label>preparedQte</label>
+                        <input type="text" class="form-control" [(ngModel)]="orderLine.preparedQte">
+                    </div>
+                    <div class="col-md-6 py-2"><label>sentQte</label>
+                        <input type="text" class="form-control" [(ngModel)]="orderLine.sentQte">
+                    </div>
+                    <div class="col-md-6 py-2"><label>price</label>
+                        <input type="text" class="form-control" [(ngModel)]="orderLine.price">
+                    </div>
+                    <div class="col-md-6 py-2"><label>orderedQte</label>
+                        <input type="text" class="form-control" [(ngModel)]="orderLine.orderedQte">
+                    </div>
+                    <div class="col-md-6 py-2"><label>id</label>
+                        <input type="text" class="form-control" [(ngModel)]="orderLine.id">
+                    </div>
+                    <div class="col-md-6 py-2"><label>orderStatus code</label>
+                        <input type="text" class="form-control" [(ngModel)]="orderLine.orderStatusVo.code">
+                    </div>
+                    <div class="col-md-6 py-2"><label>deliveryMan id</label>
+                        <input type="text" class="form-control" [(ngModel)]="orderLine.deliveryManVo.id">
+                    </div>
+                    <div class="col-md-6 py-2"><label>collaborator id</label>
+                        <input type="text" class="form-control" [(ngModel)]="orderLine.collaboratorVo.id">
+                    </div>
+                    <div class="col-md-6 py-2"><label>product reference</label>
+                        <input type="text" class="form-control" [(ngModel)]="orderLine.productVo.reference">
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-outline-danger btn-block" (click)="addOrderLine()">+</button>
+                </div>
+            </div>
+        </div>
+        <div class="card row table-responsive">
+            <div class="card-header">Added orderLines</div>
+            <div class="card-body">
+                <table class="table table-hover table-striped">
+                    <thead>
+                    <th>dateAcceptationCollaborator</th>
+                    <th>datePreparationCollaborator</th>
+                    <th>dateRecuperationDelivery</th>
+                    <th>rejectionReason</th>
+                    <th>description</th>
+                    <th>dateSubmissionToCollaborator</th>
+                    <th>longitudeCollaborator</th>
+                    <th>latitudeCollaborator</th>
+                    <th>dateRejectionCllaborator</th>
+                    <th>dateRejectionDelivery</th>
+                    <th>dateSubmissionDelivery</th>
+                    <th>dateAcceptationDelivery</th>
+                    <th>dateDelivery</th>
+                    <th>preparedQte</th>
+                    <th>sentQte</th>
+                    <th>price</th>
+                    <th>orderedQte</th>
+                    <th>id</th>
+                    <th>orderStatus code</th>
+                    <th>deliveryMan id</th>
+                    <th>collaborator id</th>
+                    <th>command reference</th>
+                    <th>product reference</th>
+                    <th>Delete</th>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let p of command.orderLinesVo;let i = index">
+                        <td>{{p.dateAcceptationCollaborator}}</td>
+                        <td>{{p.datePreparationCollaborator}}</td>
+                        <td>{{p.dateRecuperationDelivery}}</td>
+                        <td>{{p.rejectionReason}}</td>
+                        <td>{{p.description}}</td>
+                        <td>{{p.dateSubmissionToCollaborator}}</td>
+                        <td>{{p.longitudeCollaborator}}</td>
+                        <td>{{p.latitudeCollaborator}}</td>
+                        <td>{{p.dateRejectionCllaborator}}</td>
+                        <td>{{p.dateRejectionDelivery}}</td>
+                        <td>{{p.dateSubmissionDelivery}}</td>
+                        <td>{{p.dateAcceptationDelivery}}</td>
+                        <td>{{p.dateDelivery}}</td>
+                        <td>{{p.preparedQte}}</td>
+                        <td>{{p.sentQte}}</td>
+                        <td>{{p.price}}</td>
+                        <td>{{p.orderedQte}}</td>
+                        <td>{{p.id}}</td>
+                        <td>{{p.orderStatusVo.code}}</td>
+                        <td>{{p.deliveryManVo.id}}</td>
+                        <td>{{p.collaboratorVo.id}}</td>
+                        <td>{{p.commandVo.reference}}</td>
+                        <td>{{p.productVo.reference}}</td>
+                        <td>
+                            <button class="btn btn-dark fa fa-trash" (click)="removeOrderLine(i)"></button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card row">
+            <div class="card-header">Add comments</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 py-2">
+                        <div class="p-grid ui-fluid">
+                            <label>commentDate</label>
+                            <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                        [(ngModel)]="comment.commentDate"></p-calendar>
+                        </div>
+                    </div>
+                    <div class="col-md-6 py-2"><label>message</label>
+                        <input type="text" class="form-control" [(ngModel)]="comment.message">
+                    </div>
+                    <div class="col-md-6 py-2"><label>id</label>
+                        <input type="text" class="form-control" [(ngModel)]="comment.id">
+                    </div>
+                    <div class="col-md-6 py-2"><label>user id</label>
+                        <input type="text" class="form-control" [(ngModel)]="comment.userVo.id">
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-outline-danger btn-block" (click)="addComment()">+</button>
+                </div>
+            </div>
+        </div>
+        <div class="card row table-responsive">
+            <div class="card-header">Added comments</div>
+            <div class="card-body">
+                <table class="table table-hover table-striped">
+                    <thead>
+                    <th>commentDate</th>
+                    <th>message</th>
+                    <th>id</th>
+                    <th>user id</th>
+                    <th>command reference</th>
+                    <th>Delete</th>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let p of command.commentsVo;let i = index">
+                        <td>{{p.commentDate}}</td>
+                        <td>{{p.message}}</td>
+                        <td>{{p.id}}</td>
+                        <td>{{p.userVo.id}}</td>
+                        <td>{{p.commandVo.reference}}</td>
+                        <td>
+                            <button class="btn btn-dark fa fa-trash" (click)="removeComment(i)"></button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="form-control" (click)="saveCommand()">Save</button>
+        </div>
+    </div>
+</div>

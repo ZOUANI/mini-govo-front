@@ -1,0 +1,377 @@
+<app-orderLine></app-orderLine>
+
+<div class="container">
+    <div class="row">
+        <div id="accordion" class="col-12 my-3">
+            <div class="card">
+                <div class="card-header border-0 bg-white" id="headingSearch">
+
+                    <button class="btn btn-info  btn-sm fa fa-filter" data-toggle="collapse" data-target="#search"
+                            aria-expanded="true" aria-controls="search">
+                        <h5 class="float-right">Search Forms</h5>
+                    </button>
+
+                </div>
+
+                <div id="search" class="collapse" aria-labelledby="headingSearch" data-parent="#accordion">
+                    <div class="card-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="form-row">
+
+                                    <div class="input-group  col-3  my-2">
+                                        <small class="text-muted col-12">id</small>
+                                        <input type="text" class="form-control col-12" placeholder="id"
+                                               [(ngModel)]="orderLineSearch.id">
+                                    </div>
+                                    <div class="input-group  col-4  my-2">
+                                        <div class="col-5  mx-1 px-1">
+                                            <small class="text-muted">price Min</small>
+                                            <input type="text" class="form-control" placeholder="Min price"
+                                                   [(ngModel)]="orderLineSearch.priceMin">
+                                        </div>
+                                        <div class="col-5  mx-1 px-1 ">
+                                            <small class="text-muted">price Min</small>
+                                            <input type="text" class="form-control" placeholder="Max price"
+                                                   [(ngModel)]="orderLineSearch.priceMax">
+                                        </div>
+                                    </div>
+                                    <div class="input-group  col-4  my-2">
+                                        <div class="col-5  mx-1 px-1">
+                                            <small class="text-muted">orderedQte Min</small>
+                                            <input type="text" class="form-control" placeholder="Min orderedQte"
+                                                   [(ngModel)]="orderLineSearch.orderedQteMin">
+                                        </div>
+                                        <div class="col-5  mx-1 px-1 ">
+                                            <small class="text-muted">orderedQte Min</small>
+                                            <input type="text" class="form-control" placeholder="Max orderedQte"
+                                                   [(ngModel)]="orderLineSearch.orderedQteMax">
+                                        </div>
+                                    </div>
+                                    <div class="input-group  col-4  my-2">
+                                        <div class="col-5  mx-1 px-1">
+                                            <small class="text-muted">preparedQte Min</small>
+                                            <input type="text" class="form-control" placeholder="Min preparedQte"
+                                                   [(ngModel)]="orderLineSearch.preparedQteMin">
+                                        </div>
+                                        <div class="col-5  mx-1 px-1 ">
+                                            <small class="text-muted">preparedQte Min</small>
+                                            <input type="text" class="form-control" placeholder="Max preparedQte"
+                                                   [(ngModel)]="orderLineSearch.preparedQteMax">
+                                        </div>
+                                    </div>
+                                    <div class="input-group  col-4  my-2">
+                                        <div class="col-5  mx-1 px-1">
+                                            <small class="text-muted">sentQte Min</small>
+                                            <input type="text" class="form-control" placeholder="Min sentQte"
+                                                   [(ngModel)]="orderLineSearch.sentQteMin">
+                                        </div>
+                                        <div class="col-5  mx-1 px-1 ">
+                                            <small class="text-muted">sentQte Min</small>
+                                            <input type="text" class="form-control" placeholder="Max sentQte"
+                                                   [(ngModel)]="orderLineSearch.sentQteMax">
+                                        </div>
+                                    </div>
+                                    <div class="input-group  col-3  my-2">
+                                        <small class="text-muted col-12">description</small>
+                                        <input type="text" class="form-control col-12" placeholder="description"
+                                               [(ngModel)]="orderLineSearch.description">
+                                    </div>
+                                    <div class="input-group  col-4 my-2">
+                                        <small class="text-muted col-12">orderStatus </small>
+                                        <select class="form-control col-12"
+                                                [(ngModel)]="orderLineSearch.orderStatusVo">
+                                            <option *ngFor="let p of orderStatuss" [ngValue]="p">{{p.code}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group  col-3  my-2">
+                                        <small class="text-muted col-12">rejectionReason</small>
+                                        <input type="text" class="form-control col-12" placeholder="rejectionReason"
+                                               [(ngModel)]="orderLineSearch.rejectionReason">
+                                    </div>
+                                    <div class="input-group  col-4 my-2">
+                                        <small class="text-muted col-12">command</small>
+                                        <select class="form-control col-12" [(ngModel)]="orderLineSearch.commandVo">
+                                            <option *ngFor="let p of commands" [ngValue]="p">{{p.reference}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group  col-4  my-2">
+                                        <div class="col-5  mx-1 px-1">
+                                            <small class="text-muted">longitudeCollaborator Min</small>
+                                            <input type="text" class="form-control"
+                                                   placeholder="Min longitudeCollaborator"
+                                                   [(ngModel)]="orderLineSearch.longitudeCollaboratorMin">
+                                        </div>
+                                        <div class="col-5  mx-1 px-1 ">
+                                            <small class="text-muted">longitudeCollaborator Min</small>
+                                            <input type="text" class="form-control"
+                                                   placeholder="Max longitudeCollaborator"
+                                                   [(ngModel)]="orderLineSearch.longitudeCollaboratorMax">
+                                        </div>
+                                    </div>
+                                    <div class="input-group  col-4  my-2">
+                                        <div class="col-5  mx-1 px-1">
+                                            <small class="text-muted">latitudeCollaborator Min</small>
+                                            <input type="text" class="form-control"
+                                                   placeholder="Min latitudeCollaborator"
+                                                   [(ngModel)]="orderLineSearch.latitudeCollaboratorMin">
+                                        </div>
+                                        <div class="col-5  mx-1 px-1 ">
+                                            <small class="text-muted">latitudeCollaborator Min</small>
+                                            <input type="text" class="form-control"
+                                                   placeholder="Max latitudeCollaborator"
+                                                   [(ngModel)]="orderLineSearch.latitudeCollaboratorMax">
+                                        </div>
+                                    </div>
+                                    <div class="input-group  col-4 my-2">
+                                        <small class="text-muted col-12">collaborator</small>
+                                        <select class="form-control col-12"
+                                                [(ngModel)]="orderLineSearch.collaboratorVo">
+                                            <option *ngFor="let p of collaborators" [ngValue]="p">{{p.id}}</option>
+                                        </select>
+
+                                    </div>
+                                    <div class="input-group  col-4 my-2">
+                                        <small class="text-muted col-12">deliveryMan</small>
+                                        <select class="form-control col-12" [(ngModel)]="orderLineSearch.deliveryManVo">
+                                            <option *ngFor="let p of deliveryMans" [ngValue]="p">{{p.id}}</option>
+                                        </select>
+
+                                    </div>
+                                    <div class="input-group  col-4  my-2">
+                                        <div class="col-5 mx-1 px-1">
+                                            <div class="p-grid ui-fluid">
+                                                <small class="text-muted">dateSubmissionToCollaborator Min</small>
+                                                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                                            [(ngModel)]="orderLineSearch.dateSubmissionToCollaboratorMin"></p-calendar>
+                                            </div>
+                                        </div>
+                                        <div class="col-5 mx-1 px-1">
+                                            <div class="p-grid ui-fluid">
+                                                <small class="text-muted">dateSubmissionToCollaborator Max</small>
+                                                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                                            [(ngModel)]="orderLineSearch.dateSubmissionToCollaboratorMax"></p-calendar>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="input-group  col-4  my-2">
+                                        <div class="col-5 mx-1 px-1">
+                                            <div class="p-grid ui-fluid">
+                                                <small class="text-muted">dateAcceptationCollaborator Min</small>
+                                                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                                            [(ngModel)]="orderLineSearch.dateAcceptationCollaboratorMin"></p-calendar>
+                                            </div>
+                                        </div>
+                                        <div class="col-5 mx-1 px-1">
+                                            <div class="p-grid ui-fluid">
+                                                <small class="text-muted">dateAcceptationCollaborator Max</small>
+                                                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                                            [(ngModel)]="orderLineSearch.dateAcceptationCollaboratorMax"></p-calendar>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="input-group  col-4  my-2">
+                                        <div class="col-5 mx-1 px-1">
+                                            <div class="p-grid ui-fluid">
+                                                <small class="text-muted">datePreparationCollaborator Min</small>
+                                                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                                            [(ngModel)]="orderLineSearch.datePreparationCollaboratorMin"></p-calendar>
+                                            </div>
+                                        </div>
+                                        <div class="col-5 mx-1 px-1">
+                                            <div class="p-grid ui-fluid">
+                                                <small class="text-muted">datePreparationCollaborator Max</small>
+                                                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                                            [(ngModel)]="orderLineSearch.datePreparationCollaboratorMax"></p-calendar>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="input-group  col-4  my-2">
+                                        <div class="col-5 mx-1 px-1">
+                                            <div class="p-grid ui-fluid">
+                                                <small class="text-muted">dateRecuperationDelivery Min</small>
+                                                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                                            [(ngModel)]="orderLineSearch.dateRecuperationDeliveryMin"></p-calendar>
+                                            </div>
+                                        </div>
+                                        <div class="col-5 mx-1 px-1">
+                                            <div class="p-grid ui-fluid">
+                                                <small class="text-muted">dateRecuperationDelivery Max</small>
+                                                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                                            [(ngModel)]="orderLineSearch.dateRecuperationDeliveryMax"></p-calendar>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="input-group  col-3  my-2">
+                                        <small class="text-muted col-12">dateDelivery</small>
+                                        <input type="text" class="form-control col-12" placeholder="dateDelivery"
+                                               [(ngModel)]="orderLineSearch.dateDelivery">
+                                    </div>
+                                    <div class="input-group  col-4  my-2">
+                                        <div class="col-5 mx-1 px-1">
+                                            <div class="p-grid ui-fluid">
+                                                <small class="text-muted">dateSubmissionDelivery Min</small>
+                                                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                                            [(ngModel)]="orderLineSearch.dateSubmissionDeliveryMin"></p-calendar>
+                                            </div>
+                                        </div>
+                                        <div class="col-5 mx-1 px-1">
+                                            <div class="p-grid ui-fluid">
+                                                <small class="text-muted">dateSubmissionDelivery Max</small>
+                                                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                                            [(ngModel)]="orderLineSearch.dateSubmissionDeliveryMax"></p-calendar>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="input-group  col-4  my-2">
+                                        <div class="col-5 mx-1 px-1">
+                                            <div class="p-grid ui-fluid">
+                                                <small class="text-muted">dateAcceptationDelivery Min</small>
+                                                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                                            [(ngModel)]="orderLineSearch.dateAcceptationDeliveryMin"></p-calendar>
+                                            </div>
+                                        </div>
+                                        <div class="col-5 mx-1 px-1">
+                                            <div class="p-grid ui-fluid">
+                                                <small class="text-muted">dateAcceptationDelivery Max</small>
+                                                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                                            [(ngModel)]="orderLineSearch.dateAcceptationDeliveryMax"></p-calendar>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="input-group  col-4  my-2">
+                                        <div class="col-5 mx-1 px-1">
+                                            <div class="p-grid ui-fluid">
+                                                <small class="text-muted">dateRejectionCllaborator Min</small>
+                                                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                                            [(ngModel)]="orderLineSearch.dateRejectionCllaboratorMin"></p-calendar>
+                                            </div>
+                                        </div>
+                                        <div class="col-5 mx-1 px-1">
+                                            <div class="p-grid ui-fluid">
+                                                <small class="text-muted">dateRejectionCllaborator Max</small>
+                                                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                                            [(ngModel)]="orderLineSearch.dateRejectionCllaboratorMax"></p-calendar>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="input-group  col-4  my-2">
+                                        <div class="col-5 mx-1 px-1">
+                                            <div class="p-grid ui-fluid">
+                                                <small class="text-muted">dateRejectionDelivery Min</small>
+                                                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                                            [(ngModel)]="orderLineSearch.dateRejectionDeliveryMin"></p-calendar>
+                                            </div>
+                                        </div>
+                                        <div class="col-5 mx-1 px-1">
+                                            <div class="p-grid ui-fluid">
+                                                <small class="text-muted">dateRejectionDelivery Max</small>
+                                                <p-calendar class="p-col-12" dateFormat="yy-mm-dd"
+                                                            [(ngModel)]="orderLineSearch.dateRejectionDeliveryMax"></p-calendar>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="input-group  col-4 my-2">
+                                        <small class="text-muted col-12">product</small>
+                                        <select class="form-control col-12" [(ngModel)]="orderLineSearch.productVo">
+                                            <option *ngFor="let p of products" [ngValue]="p">{{p.reference}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-info btn-sm fa fa-search float-right px-5 py-2 my-4"
+                                    (click)="findOrderLine(orderLineSearch)"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="card col-12">
+            <div class="card-header bg-transparent">
+                <div class="float-left px-1"><h5>List of orderLines. </h5></div>
+
+            </div>
+            <div class="card-body table-responsive">
+
+                <table class="table table-hover col-md-12">
+                    <thead class="thead-dark">
+
+                    <th>id</th>
+                    <th>price</th>
+                    <th>orderedQte</th>
+                    <th>preparedQte</th>
+                    <th>sentQte</th>
+                    <th>description</th>
+                    <th>orderStatus reference</th>
+                    <th>rejectionReason</th>
+                    <th>command reference</th>
+                    <th>longitudeCollaborator</th>
+                    <th>latitudeCollaborator</th>
+                    <th>collaborator id</th>
+                    <th>deliveryMan id</th>
+                    <th>dateSubmissionToCollaborator</th>
+                    <th>dateAcceptationCollaborator</th>
+                    <th>datePreparationCollaborator</th>
+                    <th>dateRecuperationDelivery</th>
+                    <th>dateDelivery</th>
+                    <th>dateSubmissionDelivery</th>
+                    <th>dateAcceptationDelivery</th>
+                    <th>dateRejectionCllaborator</th>
+                    <th>dateRejectionDelivery</th>
+                    <th>product reference</th>
+                    <th>Actions</th>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let p of orderLineListe">
+
+                        <td>{{p.id}}</td>
+                        <td>{{p.price}}</td>
+                        <td>{{p.orderedQte}}</td>
+                        <td>{{p.preparedQte}}</td>
+                        <td>{{p.sentQte}}</td>
+                        <td>{{p.description}}</td>
+                        <td>{{p.orderStatusVo?.code}}</td>
+                        <td>{{p.rejectionReason}}</td>
+                        <td>{{p.commandVo?.reference}}</td>
+                        <td>{{p.longitudeCollaborator}}</td>
+                        <td>{{p.latitudeCollaborator}}</td>
+                        <td>{{p.collaboratorVo?.id}}</td>
+                        <td>{{p.deliveryManVo?.id}}</td>
+                        <td>{{p.dateSubmissionToCollaborator}}</td>
+                        <td>{{p.dateAcceptationCollaborator}}</td>
+                        <td>{{p.datePreparationCollaborator}}</td>
+                        <td>{{p.dateRecuperationDelivery}}</td>
+                        <td>{{p.dateDelivery}}</td>
+                        <td>{{p.dateSubmissionDelivery}}</td>
+                        <td>{{p.dateAcceptationDelivery}}</td>
+                        <td>{{p.dateRejectionCllaborator}}</td>
+                        <td>{{p.dateRejectionDelivery}}</td>
+                        <td>{{p.productVo?.reference}}</td>
+
+
+                        <td>
+                            <button class="btn btn-danger btn-sm fa fa-trash mx-md-1" (click)="delete(p)"></button>
+                            <button class="btn btn-warning btn-sm fa fa-external-link mx-md-1"
+                                    (click)="detailShow(p)"></button>
+
+
+                        </td>
+
+                    </tr>
+                    <app-orderLine-details *ngIf="orderLineShowDetail"></app-orderLine-details>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

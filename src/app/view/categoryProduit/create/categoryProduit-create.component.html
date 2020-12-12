@@ -1,0 +1,39 @@
+<div class="modal" tabindex="-1" role="dialog" style="display: block;background-color: #000000bf;">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Create CategoryProduit </h5>
+                <button type="button" class="close" aria-label="Close" (click)="createHide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card col-md-12 mx-auto  p-md-2">
+
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 py-2">
+                                <label>imagePath</label>
+                                <input type="text" class="form-control" [(ngModel)]="categoryProduit.imagePath">
+                            </div>
+                            <div class="col-md-6 py-2">
+                                <label>label</label>
+                                <input type="text" class="form-control" [(ngModel)]="categoryProduit.label">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label>superCategoryProduct</label>
+                            <select class="form-control" [(ngModel)]="categoryProduit.superCategoryProductVo.label">
+                                <option *ngFor="let p of superCategoryProducts" [ngValue]="p.label"
+                                        value="{{p.label}}">{{p.label}}</option>
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="form-control" (click)="saveCategoryProduit()">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

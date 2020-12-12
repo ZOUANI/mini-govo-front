@@ -1,0 +1,47 @@
+<div class="modal" tabindex="-1" role="dialog" style="display: block;background-color: #000000bf;">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">details of Rating </h5>
+                <button type="button" class="close" aria-label="Close" (click)="detailHide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-hover">
+                    <thead class="thead-dark">
+                    <th>Field</th>
+                    <th>Value</th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>id</td>
+                        <td>{{ratingDetail.id}} </td>
+                    </tr>
+                    <tr>
+                        <td>orderLine</td>
+                        <td>{{ratingDetail.orderLineVo.id}} </td>
+                    </tr>
+                    <tr>
+                        <td>collaborator</td>
+                        <td>{{ratingDetail.collaboratorVo.id}} </td>
+                    </tr>
+                    <tr>
+                        <td>client</td>
+                        <td>{{ratingDetail.clientVo.id}} </td>
+                    </tr>
+                    <tr>
+                        <td>mark</td>
+                        <td>{{ratingDetail.mark}} </td>
+                    </tr>
+                    <tr>
+                        <td>comment</td>
+                        <td>{{ratingDetail.comment}} </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,125 @@
+<app-product></app-product>
+
+<div class="container">
+    <div class="row">
+        <div id="accordion" class="col-12 my-3">
+            <div class="card">
+                <div class="card-header border-0 bg-white" id="headingSearch">
+
+                    <button class="btn btn-info  btn-sm fa fa-filter" data-toggle="collapse" data-target="#search"
+                            aria-expanded="true" aria-controls="search">
+                        <h5 class="float-right">Search Forms</h5>
+                    </button>
+
+                </div>
+
+                <div id="search" class="collapse" aria-labelledby="headingSearch" data-parent="#accordion">
+                    <div class="card-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="form-row">
+
+                                    <div class="input-group  col-3  my-2">
+                                        <small class="text-muted col-12">id</small>
+                                        <input type="text" class="form-control col-12" placeholder="id"
+                                               [(ngModel)]="productSearch.id">
+                                    </div>
+                                    <div class="input-group  col-4  my-2">
+                                        <div class="col-5  mx-1 px-1">
+                                            <small class="text-muted">price Min</small>
+                                            <input type="text" class="form-control" placeholder="Min price"
+                                                   [(ngModel)]="productSearch.priceMin">
+                                        </div>
+                                        <div class="col-5  mx-1 px-1 ">
+                                            <small class="text-muted">price Min</small>
+                                            <input type="text" class="form-control" placeholder="Max price"
+                                                   [(ngModel)]="productSearch.priceMax">
+                                        </div>
+                                    </div>
+                                    <div class="input-group  col-3  my-2">
+                                        <small class="text-muted col-12">reference</small>
+                                        <input type="text" class="form-control col-12" placeholder="reference"
+                                               [(ngModel)]="productSearch.reference">
+                                    </div>
+                                    <div class="input-group  col-3  my-2">
+                                        <small class="text-muted col-12">label </small>
+                                        <input type="text" class="form-control col-12" placeholder="label "
+                                               [(ngModel)]="productSearch.label ">
+                                    </div>
+                                    <div class="input-group  col-4 my-2">
+                                        <small class="text-muted col-12">categoryProduit</small>
+                                        <select class="form-control col-12"
+                                                [(ngModel)]="productSearch.categoryProduitVo">
+                                            <option *ngFor="let p of categoryProduits"
+                                                    [ngValue]="p">{{p.label}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group  col-3  my-2">
+                                        <small class="text-muted col-12">imagePath</small>
+                                        <input type="text" class="form-control col-12" placeholder="imagePath"
+                                               [(ngModel)]="productSearch.imagePath">
+                                    </div>
+                                    <div class="input-group  col-4 my-2">
+                                        <small class="text-muted col-12">mesureUnit</small>
+                                        <select class="form-control col-12" [(ngModel)]="productSearch.mesureUnitVo">
+                                            <option *ngFor="let p of mesureUnits" [ngValue]="p">{{p.label}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-info btn-sm fa fa-search float-right px-5 py-2 my-4"
+                                    (click)="findProduct(productSearch)"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="card col-12">
+            <div class="card-header bg-transparent">
+                <div class="float-left px-1"><h5>List of products. </h5></div>
+
+            </div>
+            <div class="card-body table-responsive">
+
+                <table class="table table-hover col-md-12">
+                    <thead class="thead-dark">
+
+                    <th>id</th>
+                    <th>price</th>
+                    <th>reference</th>
+                    <th>label</th>
+                    <th>categoryProduit reference</th>
+                    <th>imagePath</th>
+                    <th>mesureUnit reference</th>
+                    <th>Actions</th>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let p of productListe">
+
+                        <td>{{p.id}}</td>
+                        <td>{{p.price}}</td>
+                        <td>{{p.reference}}</td>
+                        <td>{{p.label }}</td>
+                        <td>{{p.categoryProduitVo?.label}}</td>
+                        <td>{{p.imagePath}}</td>
+                        <td>{{p.mesureUnitVo?.label}}</td>
+
+
+                        <td>
+                            <button class="btn btn-danger btn-sm fa fa-trash mx-md-1" (click)="delete(p)"></button>
+                            <button class="btn btn-warning btn-sm fa fa-external-link mx-md-1"
+                                    (click)="detailShow(p)"></button>
+
+
+                        </td>
+
+                    </tr>
+                    <app-product-details *ngIf="productShowDetail"></app-product-details>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,120 @@
+<app-rating></app-rating>
+
+<div class="container">
+    <div class="row">
+        <div id="accordion" class="col-12 my-3">
+            <div class="card">
+                <div class="card-header border-0 bg-white" id="headingSearch">
+
+                    <button class="btn btn-info  btn-sm fa fa-filter" data-toggle="collapse" data-target="#search"
+                            aria-expanded="true" aria-controls="search">
+                        <h5 class="float-right">Search Forms</h5>
+                    </button>
+
+                </div>
+
+                <div id="search" class="collapse" aria-labelledby="headingSearch" data-parent="#accordion">
+                    <div class="card-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="form-row">
+
+                                    <div class="input-group  col-3  my-2">
+                                        <small class="text-muted col-12">id</small>
+                                        <input type="text" class="form-control col-12" placeholder="id"
+                                               [(ngModel)]="ratingSearch.id">
+                                    </div>
+                                    <div class="input-group  col-4 my-2">
+                                        <small class="text-muted col-12">orderLine</small>
+                                        <select class="form-control col-12" [(ngModel)]="ratingSearch.orderLineVo">
+                                            <option *ngFor="let p of orderLines" [ngValue]="p">{{p.id}}</option>
+                                        </select>
+
+                                    </div>
+                                    <div class="input-group  col-4 my-2">
+                                        <small class="text-muted col-12">collaborator</small>
+                                        <select class="form-control col-12" [(ngModel)]="ratingSearch.collaboratorVo">
+                                            <option *ngFor="let p of collaborators" [ngValue]="p">{{p.id}}</option>
+                                        </select>
+
+                                    </div>
+                                    <div class="input-group  col-4 my-2">
+                                        <small class="text-muted col-12">client</small>
+                                        <select class="form-control col-12" [(ngModel)]="ratingSearch.clientVo">
+                                            <option *ngFor="let p of clients" [ngValue]="p">{{p.id}}</option>
+                                        </select>
+
+                                    </div>
+                                    <div class="input-group  col-4  my-2">
+                                        <div class="col-5  mx-1 px-1">
+                                            <small class="text-muted">mark Min</small>
+                                            <input type="text" class="form-control" placeholder="Min mark"
+                                                   [(ngModel)]="ratingSearch.markMin">
+                                        </div>
+                                        <div class="col-5  mx-1 px-1 ">
+                                            <small class="text-muted">mark Min</small>
+                                            <input type="text" class="form-control" placeholder="Max mark"
+                                                   [(ngModel)]="ratingSearch.markMax">
+                                        </div>
+                                    </div>
+                                    <div class="input-group  col-3  my-2">
+                                        <small class="text-muted col-12">comment</small>
+                                        <input type="text" class="form-control col-12" placeholder="comment"
+                                               [(ngModel)]="ratingSearch.comment">
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-info btn-sm fa fa-search float-right px-5 py-2 my-4"
+                                    (click)="findRating(ratingSearch)"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="card col-12">
+            <div class="card-header bg-transparent">
+                <div class="float-left px-1"><h5>List of ratings. </h5></div>
+
+            </div>
+            <div class="card-body table-responsive">
+
+                <table class="table table-hover col-md-12">
+                    <thead class="thead-dark">
+
+                    <th>id</th>
+                    <th>orderLine id</th>
+                    <th>collaborator id</th>
+                    <th>client id</th>
+                    <th>mark</th>
+                    <th>comment</th>
+                    <th>Actions</th>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let p of ratingListe">
+
+                        <td>{{p.id}}</td>
+                        <td>{{p.orderLineVo?.id}}</td>
+                        <td>{{p.collaboratorVo?.id}}</td>
+                        <td>{{p.clientVo?.id}}</td>
+                        <td>{{p.mark}}</td>
+                        <td>{{p.comment}}</td>
+
+
+                        <td>
+                            <button class="btn btn-danger btn-sm fa fa-trash mx-md-1" (click)="delete(p)"></button>
+                            <button class="btn btn-warning btn-sm fa fa-external-link mx-md-1"
+                                    (click)="detailShow(p)"></button>
+
+
+                        </td>
+
+                    </tr>
+                    <app-rating-details *ngIf="ratingShowDetail"></app-rating-details>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
