@@ -321,4 +321,18 @@ export class CommandService {
         this.commandShowDetail = false;
         this.commandDetail = null;
     }
+
+    changeCommandStatus(reference: string, label: string) {
+
+    }
+
+
+    private _commandToAffect: CommandVo;
+    get commandToAffect(): CommandVo {
+        return this._commandToAffect;
+    }
+
+    set commandToAffect(value: CommandVo) {
+        this._commandToAffect = value;
+    }
 }

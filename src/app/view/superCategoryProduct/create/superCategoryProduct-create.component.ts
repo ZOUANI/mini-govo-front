@@ -18,6 +18,12 @@ export class SuperCategoryProductCreateComponent implements OnInit {
         return this.superCategoryProductService.superCategoryProduct;
     }
 
+    get file() {
+        return this.superCategoryProductService.file;
+    }
+    set file(value) {
+        this.superCategoryProductService.file = value;
+    }
 
     saveSuperCategoryProduct() {
         this.superCategoryProductService.saveSuperCategoryProduct();
@@ -34,5 +40,20 @@ export class SuperCategoryProductCreateComponent implements OnInit {
 
     public createHide() {
         this.superCategoryProductService.createHide();
+    }
+
+    changeListener($event): void {
+        this.readThis($event.target);
+    }
+
+    readThis(inputValue: any): void {
+
+        const file: File = inputValue.files[0];
+        const myReader: FileReader = new FileReader();
+        this.file = file;
+        myReader.onloadend = (e) => {
+            this.superCategoryProduct.imagePath = myReader.result.toString();
+        };
+        myReader.readAsDataURL(file);
     }
 }

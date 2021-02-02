@@ -21,7 +21,15 @@ export class ProductService {
     private _editableProducts: Array<ProductVo> = new Array<ProductVo>();
     private _categoryProduits: Array<CategoryProduitVo> = new Array<CategoryProduitVo>();
     private _mesureUnits: Array<MesureUnitVo> = new Array<MesureUnitVo>();
+    private _file ;
 
+    get file() {
+        return this._file;
+    }
+
+    set file(value) {
+        this._file = value;
+    }
     get categoryProduits(): Array<CategoryProduitVo> {
         return this._categoryProduits;
     }

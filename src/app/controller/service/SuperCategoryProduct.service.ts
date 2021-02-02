@@ -1,22 +1,21 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {SuperCategoryProductVo} from '../model/SuperCategoryProduct.model';
 
 @Injectable({
     providedIn: 'root'
 })
 export class SuperCategoryProductService {
+    get file() {
+        return this._file;
+    }
+
+    set file(value) {
+        this._file = value;
+    }
 
     constructor(private http: HttpClient) {
     }
-
-    private _superCategoryProductDetail: SuperCategoryProductVo = new SuperCategoryProductVo();
-    private _superCategoryProductListe: Array<SuperCategoryProductVo> = new Array<SuperCategoryProductVo>();
-
-    private _superCategoryProductSearch: SuperCategoryProductVo = new SuperCategoryProductVo();
-    private _superCategoryProduct: SuperCategoryProductVo = new SuperCategoryProductVo();
-    private _searchedSuperCategoryProducts: Array<SuperCategoryProductVo> = new Array<SuperCategoryProductVo>();
-    private _editableSuperCategoryProducts: Array<SuperCategoryProductVo> = new Array<SuperCategoryProductVo>();
 
     get superCategoryProduct(): SuperCategoryProductVo {
         if (this._superCategoryProduct == null) {
@@ -69,6 +68,39 @@ export class SuperCategoryProductService {
         this._editableSuperCategoryProducts = value;
     }
 
+    get superCategoryProductShowEdit(): boolean {
+        return this._superCategoryProductShowEdit;
+    }
+
+    set superCategoryProductShowEdit(value: boolean) {
+        this._superCategoryProductShowEdit = value;
+    }
+
+    get superCategoryProductShowCreate(): boolean {
+        return this._superCategoryProductShowCreate;
+    }
+
+    set superCategoryProductShowCreate(value: boolean) {
+        this._superCategoryProductShowCreate = value;
+    }
+
+    private _superCategoryProductDetail: SuperCategoryProductVo = new SuperCategoryProductVo();
+    private _superCategoryProductListe: Array<SuperCategoryProductVo> = new Array<SuperCategoryProductVo>();
+
+    private _superCategoryProductSearch: SuperCategoryProductVo = new SuperCategoryProductVo();
+    private _superCategoryProduct: SuperCategoryProductVo = new SuperCategoryProductVo();
+    private _file ;
+    private _searchedSuperCategoryProducts: Array<SuperCategoryProductVo> = new Array<SuperCategoryProductVo>();
+    private _editableSuperCategoryProducts: Array<SuperCategoryProductVo> = new Array<SuperCategoryProductVo>();
+
+
+    /***********************************************************************************************/
+    private _superCategoryProductShowDetail: boolean;
+
+    private _superCategoryProductShowEdit: boolean;
+
+    private _superCategoryProductShowCreate: boolean;
+
     public findAll() {
         this.http.get<Array<SuperCategoryProductVo>>('http://localhost:8036/generated/superCategoryProduct/').subscribe(
             value => {
@@ -112,7 +144,7 @@ export class SuperCategoryProductService {
     delete(pojo: SuperCategoryProductVo) {
         this.http.delete<SuperCategoryProductVo>('http://localhost:8036/generated/superCategoryProduct/id/' + pojo.id).subscribe(
             value => {
-                var index = this.superCategoryProductListe.indexOf(pojo);
+                const index = this.superCategoryProductListe.indexOf(pojo);
                 if (index > -1) {
                     this.superCategoryProductListe.splice(index, 1);
                 }
@@ -133,34 +165,10 @@ export class SuperCategoryProductService {
         );
     }
 
-
-    /***********************************************************************************************/
-    private _superCategoryProductShowDetail: boolean;
-
     public detailHide() {
 
         this.superCategoryProductShowDetail = false;
         this.superCategoryProductDetail = null;
-    }
-
-    private _superCategoryProductShowEdit: boolean;
-
-    private _superCategoryProductShowCreate: boolean;
-
-    get superCategoryProductShowEdit(): boolean {
-        return this._superCategoryProductShowEdit;
-    }
-
-    set superCategoryProductShowEdit(value: boolean) {
-        this._superCategoryProductShowEdit = value;
-    }
-
-    get superCategoryProductShowCreate(): boolean {
-        return this._superCategoryProductShowCreate;
-    }
-
-    set superCategoryProductShowCreate(value: boolean) {
-        this._superCategoryProductShowCreate = value;
     }
 
     public editShow(pojo: SuperCategoryProductVo) {

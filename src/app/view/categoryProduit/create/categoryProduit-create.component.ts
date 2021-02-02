@@ -16,6 +16,13 @@ export class CategoryProduitCreateComponent implements OnInit {
         this.findAllsuperCategoryProducts();
     }
 
+    get file() {
+        return this.categoryProduitService.file;
+    }
+    set file(value) {
+        this.categoryProduitService.file = value;
+    }
+
     get categoryProduit(): CategoryProduitVo {
         return this.categoryProduitService.categoryProduit;
     }
@@ -42,5 +49,24 @@ export class CategoryProduitCreateComponent implements OnInit {
 
     public createHide() {
         this.categoryProduitService.createHide();
+    }
+
+    changeListener($event): void {
+        this.readThis($event.target);
+    }
+
+    readThis(inputValue: any): void {
+
+        const file: File = inputValue.files[0];
+        const myReader: FileReader = new FileReader();
+        this.file = file;
+        myReader.onloadend = (e) => {
+            this.categoryProduit.imagePath = myReader.result.toString();
+        };
+        myReader.readAsDataURL(file);
+    }
+
+    clog() {
+        console.log(this.categoryProduit.superCategoryProductVo.label);
     }
 }

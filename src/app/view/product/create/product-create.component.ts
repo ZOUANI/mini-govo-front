@@ -42,4 +42,27 @@ export class ProductCreateComponent implements OnInit {
         this.productService.findAllmesureUnits();
     }
 
+    changeListener($event): void {
+        this.readThis($event.target);
+    }
+
+    get file() {
+        return this.productService.file;
+    }
+
+    set file(value) {
+        this.productService.file = value;
+    }
+
+    readThis(inputValue: any): void {
+
+        const file: File = inputValue.files[0];
+        const myReader: FileReader = new FileReader();
+        this.file = file;
+        myReader.onloadend = (e) => {
+            this.product.imagePath = myReader.result.toString();
+        };
+        myReader.readAsDataURL(file);
+    }
+
 }

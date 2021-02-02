@@ -27,6 +27,7 @@ export class OrderLineService {
     private _commands: Array<CommandVo> = new Array<CommandVo>();
     private _products: Array<ProductVo> = new Array<ProductVo>();
 
+
     get orderStatuss(): Array<OrderStatusVo> {
         return this._orderStatuss;
     }
@@ -238,5 +239,52 @@ export class OrderLineService {
 
         this.orderLineShowDetail = false;
         this.orderLineDetail = null;
+    }
+
+
+    private _orderLineShowAffect: boolean;
+    private _orderLineToAffect: OrderLineVo;
+
+    affectShow(orderLineVo: OrderLineVo) {
+        this._orderLineShowAffect = true;
+        let c = new UserVo();
+        c.id = '3';
+        c.firstName = 'prenomCol';
+        c.lastName = 'nomCol';
+        let c1 = new UserVo();
+        c1.id = '3';
+        c1.firstName = 'prenomCol1';
+        c1.lastName = 'nomCol1';
+        this._collaborators = [c, c1];
+        this.orderLineToAffect = orderLineVo;
+    }
+
+    public findCollaboratorsByProductCategoryId(productCategoryId: number) {
+        this.http.get<Array<UserVo>>('http://localhost:8090/collaborator/speciality/' + productCategoryId).subscribe(
+            value => {
+                if (value != null) {
+                    this._collaborators = value;
+                }
+            }
+        );
+    }
+
+
+    get orderLineShowAffect(): boolean {
+        return this._orderLineShowAffect;
+    }
+
+    set orderLineShowAffect(value: boolean) {
+        this._orderLineShowAffect = value;
+    }
+
+
+
+    get orderLineToAffect(): OrderLineVo {
+        return this._orderLineToAffect;
+    }
+
+    set orderLineToAffect(value: OrderLineVo) {
+        this._orderLineToAffect = value;
     }
 }

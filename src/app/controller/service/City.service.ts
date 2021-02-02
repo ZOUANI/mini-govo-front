@@ -82,13 +82,17 @@ export class CityService {
     }
 
     public saveCity() {
-        this.http.post('http://localhost:8036/generated/city/', this.city).subscribe();
-        this.findAll();
+        this.http.post('http://localhost:8036/generated/city/', this.city).subscribe(value => {
+            this.findAll();
+            this.createHide();
+        });
     }
 
     public editCity() {
-        this.http.put('http://localhost:8036/generated/city/', this.city).subscribe();
-        this.findAll();
+        this.http.put('http://localhost:8036/generated/city/', this.city).subscribe(value => {
+            this.findAll();
+            this.editHide();
+        });
     }
 
     public findCity(pojo: CityVo) {

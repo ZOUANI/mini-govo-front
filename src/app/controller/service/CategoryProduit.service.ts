@@ -18,6 +18,16 @@ export class CategoryProduitService {
     private _searchedCategoryProduits: Array<CategoryProduitVo> = new Array<CategoryProduitVo>();
     private _editableCategoryProduits: Array<CategoryProduitVo> = new Array<CategoryProduitVo>();
     private _superCategoryProducts: Array<SuperCategoryProductVo> = new Array<SuperCategoryProductVo>();
+    private _file ;
+
+    get file() {
+        return this._file;
+    }
+
+    set file(value) {
+        this._file = value;
+    }
+
     get superCategoryProducts(): Array<SuperCategoryProductVo> {
         return this._superCategoryProducts;
     }

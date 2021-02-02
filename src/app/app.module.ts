@@ -84,6 +84,7 @@ import {LandingPageComponent} from './landing-page/landing-page.component';
 import {OverlayPanelModule} from 'primeng/overlaypanel';
 
 import {MenuModule} from 'primeng/menu';
+import { CommandOrderLineComponent } from './view/command/command-order-line/command-order-line.component';
 
 @NgModule({
     declarations: [
@@ -159,7 +160,8 @@ import {MenuModule} from 'primeng/menu';
         RoleComponent,
         AppComponent,
         LandingPageComponent,
-        NavbarComponent
+        NavbarComponent,
+        CommandOrderLineComponent
     ],
     imports: [
         BrowserModule,

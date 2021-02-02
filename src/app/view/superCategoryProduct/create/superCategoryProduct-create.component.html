@@ -18,11 +18,13 @@
                             </div>
                             <div class="col-md-6 py-2">
                                 <label>imagePath</label>
-                                <input type="text" class="form-control" [(ngModel)]="superCategoryProduct.imagePath">
+<!--                                <input type="text" class="form-control" [(ngModel)]="superCategoryProduct.imagePath">-->
+                                <input type="file" accept="image/*" (change)="changeListener($event)">
                             </div>
                             <div class="col-md-6 py-2">
                                 <label>label</label>
                                 <input type="text" class="form-control" [(ngModel)]="superCategoryProduct.label">
+                                
                             </div>
                         </div>
                         <div class="modal-footer">

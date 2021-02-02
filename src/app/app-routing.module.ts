@@ -58,6 +58,7 @@ import {RoleDetailsComponent} from './view/role/details/role-details.component';
 import {RoleEditComponent} from './view/role/edit/role-edit.component';
 import {AppComponent} from './app.component';
 import {LandingPageComponent} from './landing-page/landing-page.component';
+import {CommandOrderLineComponent} from './view/command/command-order-line/command-order-line.component';
 
 const routes: Routes = [
         {
@@ -79,6 +80,7 @@ const routes: Routes = [
         {
             path: 'command', children: [
                 {path: 'list', component: CommandlistComponent},
+                {path: 'orderLine', component: CommandOrderLineComponent},
                 {path: 'create', component: CommandCreateComponent},
                 {path: 'details', component: CommandDetailsComponent},
                 {path: 'edit', component: CommandEditComponent}

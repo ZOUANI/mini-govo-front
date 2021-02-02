@@ -91,13 +91,21 @@ export class OrderStatusService {
     }
 
     public saveOrderStatus() {
-        this.http.post('http://localhost:8036/generated/orderStatus/', this.orderStatus).subscribe();
-        this.findAll();
+        this.http.post('http://localhost:8036/generated/orderStatus/', this.orderStatus).subscribe(
+            value => {
+                this.findAll();
+                this.createHide();
+            }
+        );
     }
 
     public editOrderStatus() {
-        this.http.put('http://localhost:8036/generated/orderStatus/', this.orderStatus).subscribe();
-        this.findAll();
+        this.http.put('http://localhost:8036/generated/orderStatus/', this.orderStatus).subscribe(
+            value => {
+                this.findAll();
+                this.editHide();
+            }
+        );
     }
 
     public findOrderStatus(pojo: OrderStatusVo) {

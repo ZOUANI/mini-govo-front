@@ -82,13 +82,20 @@ export class RoleService {
     }
 
     public saveRole() {
-        this.http.post('http://localhost:8036/generated/role/', this.role).subscribe();
-        this.findAll();
+        this.http.post('http://localhost:8036/generated/role/', this.role).subscribe(value => {
+            this.findAll();
+            this.createHide();
+
+        });
     }
 
     public editRole() {
-        this.http.put('http://localhost:8036/generated/role/', this.role).subscribe();
-        this.findAll();
+        this.http.put('http://localhost:8036/generated/role/', this.role).subscribe(
+            value => {
+                this.findAll();
+                this.editHide();
+            }
+        );
     }
 
     public findRole(pojo: RoleVo) {

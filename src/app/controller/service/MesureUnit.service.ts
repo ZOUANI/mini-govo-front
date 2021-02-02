@@ -82,13 +82,23 @@ export class MesureUnitService {
     }
 
     public saveMesureUnit() {
-        this.http.post('http://localhost:8036/generated/mesureUnit/', this.mesureUnit).subscribe();
-        this.findAll();
+        this.http.post('http://localhost:8036/generated/mesureUnit/', this.mesureUnit).subscribe(
+            value => {
+                this.findAll();
+                this.createHide();
+
+            }
+        );
     }
 
     public editMesureUnit() {
-        this.http.put('http://localhost:8036/generated/mesureUnit/', this.mesureUnit).subscribe();
-        this.findAll();
+        this.http.put('http://localhost:8036/generated/mesureUnit/', this.mesureUnit).subscribe(
+            value => {
+                this.findAll();
+                this.editHide();
+
+            }
+        );
     }
 
     public findMesureUnit(pojo: MesureUnitVo) {

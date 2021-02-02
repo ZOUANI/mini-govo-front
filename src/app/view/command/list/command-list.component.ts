@@ -37,15 +37,6 @@ export class CommandlistComponent implements OnInit {
         return this.commandService.orderStatuss;
     }
 
-    ngOnInit(): void {
-        this.findAll();
-        this.findAlladmins();
-        this.findAlldeliveryMans();
-        this.findAllclients();
-        this.findAllcitys();
-        this.findAllorderStatuss();
-    }
-
     get commandService(): CommandService {
         return this._commandService;
     }
@@ -85,6 +76,23 @@ export class CommandlistComponent implements OnInit {
 
     set commandShowDetail(value: boolean) {
         this.commandService.commandShowDetail = value;
+    }
+
+    get orderStatusList(): Array<OrderStatusVo> {
+        return this.commandService.orderStatuss;
+    }
+
+    commandToChangeStatus;
+
+    newStatus = new OrderStatusVo();
+
+    ngOnInit(): void {
+        this.findAll();
+        this.findAlladmins();
+        this.findAlldeliveryMans();
+        this.findAllclients();
+        this.findAllcitys();
+        this.findAllorderStatuss();
     }
 
 
@@ -127,4 +135,14 @@ export class CommandlistComponent implements OnInit {
         this.commandService.findAllorderStatuss();
     }
 
+    setCommandToChangeStatus(c: CommandVo) {
+        console.log(c);
+        this.commandToChangeStatus = c;
+    }
+
+    changeOrderStatus(command: CommandVo) {
+        command.orderStatusVo = this.newStatus;
+        this.commandToChangeStatus = null;
+        this.commandService.changeCommandStatus(command.reference, this.newStatus.label);
+    }
 }

@@ -82,13 +82,19 @@ export class SuperOrderStatusService {
     }
 
     public saveSuperOrderStatus() {
-        this.http.post('http://localhost:8036/generated/superOrderStatus/', this.superOrderStatus).subscribe();
-        this.findAll();
+        this.http.post('http://localhost:8036/generated/superOrderStatus/', this.superOrderStatus).subscribe(
+            value => {
+                this.findAll();
+                this.createHide();
+            }
+        );
     }
 
     public editSuperOrderStatus() {
-        this.http.put('http://localhost:8036/generated/superOrderStatus/', this.superOrderStatus).subscribe();
-        this.findAll();
+        this.http.put('http://localhost:8036/generated/superOrderStatus/', this.superOrderStatus).subscribe(value => {
+            this.findAll();
+            this.editHide();
+        });
     }
 
     public findSuperOrderStatus(pojo: SuperOrderStatusVo) {

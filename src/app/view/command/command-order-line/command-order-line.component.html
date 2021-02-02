@@ -1,0 +1,106 @@
+<app-command></app-command>
+<div class="">
+    <div class="row">
+        <div class="card col-12">
+            <div class="card-header bg-transparent">
+                <div class="float-left px-1">
+                    <h5>Affectation of CMD:{{commandToAffect.reference}}</h5>
+                </div>
+                <!--                <div class="float-left px-1 row">-->
+
+                <!--                    <div class="form-group col">-->
+                <!--                        <label for="Reference">Order Reference</label>-->
+                <!--                        <input type="text" [(ngModel)]="filterByReference" class="form-control" id="Reference">-->
+                <!--                    </div>-->
+
+                <!--                    <div class="form-group">-->
+                <!--                        <label for="date">Order Date</label>-->
+                <!--                        <input type="date" class="form-control" id="date" [(ngModel)]="commandSearchBasic.orderDate">-->
+                <!--                    </div>-->
+                <!--                    <div class="form-group col">-->
+                <!--                        <label for="City">City</label>-->
+                <!--                        <select class="form-control" id="City" [(ngModel)]="commandSearchBasic.cityVo">-->
+                <!--                            <option [ngValue]=null>&#45;&#45;select&#45;&#45;</option>-->
+                <!--                            <option *ngFor="let city of citys" [ngValue]="city">{{city.name}}</option>-->
+                <!--                        </select>-->
+                <!--                    </div>-->
+                <!--                    <div class="form-group col">-->
+                <!--                        <label for="status">Order Status</label>-->
+                <!--                        <select class="form-control" id="status" [(ngModel)]="commandSearchBasic.orderStatusVo">-->
+                <!--                            <option [ngValue]=null>&#45;&#45;select&#45;&#45;</option>-->
+                <!--                            <option *ngFor="let os of orderStatusList" [ngValue]="os">{{os.label}}</option>-->
+                <!--                        </select>-->
+                <!--                    </div>-->
+                <!--                    <div class="form-group col">-->
+                <!--                        <label for="Delivery">Delivery Service</label>-->
+                <!--                        <select class="form-control" id="Delivery" [(ngModel)]="commandSearchBasic.deliveryVo">-->
+                <!--                            <option [ngValue]=null>&#45;&#45;select&#45;&#45;</option>-->
+                <!--                            <option *ngFor="let d of deliveries" [ngValue]="d">{{d.code}}</option>-->
+                <!--                        </select>-->
+                <!--                    </div>-->
+                <!--                    <div style="margin-top: 31px " class="ml-3">-->
+                <!--                        <button class="btn btn-outline-info btn-lg fa fa-search"-->
+                <!--                                (click)="findCommand(commandSearchBasic)"></button>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+
+
+            </div>
+            <div class="card-body table-responsive">
+
+                <table class="table table-hover col-md-12">
+                    <thead class="thead-dark">
+
+                    <th>Product Ref</th>
+                    <th>label</th>
+                    <th>Price (MAD)</th>
+                    <th>Ordred Qte</th>
+                    <th>Total (MAD)</th>
+                    <th>Prepared Qte</th>
+                    <th>Sent Qte</th>
+                    <th>delivered Qte</th>
+                    <th>Collaborator</th>
+                    <th>Delivery Man</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let c of commandToAffect.orderLinesVo">
+
+                        <td>{{c.productVo.reference}}</td>
+                        <td>{{c.productVo.label}}</td>
+                        <td>{{c.productVo.price}}</td>
+                        <td>{{c.orderedQte}}</td>
+                        <td>{{c.price}}</td>
+                        <td>{{c.preparedQte}}</td>
+                        <td>{{c.sentQte}}</td>
+<!--                        <td>{{c.deliveredQte}}</td>-->
+<!--                        <td>{{c.collaboratorVo.id!=null?c.collaboratorVo.getFullName():''}}</td>-->
+<!--                        <td>{{c.deliveryManVo.id!=null?c.deliveryManVo.getFullName():''}}</td>-->
+                        <td><span
+                                [ngStyle]="{'background-color':c.orderStatusVo.color}"
+                                class="badge badge-pill" (click)="setOrderLineToChangeStatus(c)">{{c.orderStatusVo.label}}</span>
+                            <select *ngIf="c == orderLineToChangeStatus"
+                                    (change)="changeOrderStatus(c)"
+                                    [(ngModel)]="newStatus"
+                                    class="form-control"
+                            >
+                                <option *ngFor="let d of orderStatusList"
+                                        [ngStyle]="{'background-color':d.color}"
+                                        [ngValue]="d"
+                                >{{d.label}}
+                                </option>
+                            </select>
+                        </td>
+                        <td>
+                            <button (click)="affectShow(c)" class="btn btn-info btn-sm fa fa-hand-pointer-o mx-md-1" aria-describedby="affectation"></button>
+                        </td>
+                    </tr>
+
+<!--                    <app-command-order-line-affect *ngIf="orderLineShowAffect"></app-command-order-line-affect>-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -252,25 +252,13 @@
 
                     <th>id</th>
                     <th>reference</th>
-                    <th>orderDate</th>
-                    <th>address</th>
-                    <th>city reference</th>
-                    <th>orderStatus reference</th>
-                    <th>total</th>
-                    <th>remark</th>
-                    <th>dayCommand</th>
-                    <th>monthCommand</th>
-                    <th>yearCommand</th>
-                    <th>regulationDate</th>
-                    <th>nbrTotalComment</th>
-                    <th>commentResolution</th>
-                    <th>commentResolutionDate</th>
-                    <th>longitudeDelivery</th>
-                    <th>latitudeDelivery</th>
                     <th>client id</th>
-                    <th>admin id</th>
-                    <th>deliveryMan id</th>
+                    <th>orderDate</th>
+                    <th>regulationDate</th>
                     <th>dateSubmission</th>
+                    <th>city reference</th>
+                    <th>total</th>
+                    <th>Status</th>
                     <th>Actions</th>
                     </thead>
                     <tbody>
@@ -278,27 +266,27 @@
 
                         <td>{{p.id}}</td>
                         <td>{{p.reference}}</td>
+                        <td>{{p.clientVo?.firstName}} {{p.clientVo?.lastName}}</td>
                         <td>{{p.orderDate}}</td>
-                        <td>{{p.address}}</td>
-                        <td>{{p.cityVo?.name}}</td>
-                        <td>{{p.orderStatusVo?.code}}</td>
-                        <td>{{p.total}}</td>
-                        <td>{{p.remark}}</td>
-                        <td>{{p.dayCommand}}</td>
-                        <td>{{p.monthCommand}}</td>
-                        <td>{{p.yearCommand}}</td>
                         <td>{{p.regulationDate}}</td>
-                        <td>{{p.nbrTotalComment}}</td>
-                        <td>{{p.commentResolution}}</td>
-                        <td>{{p.commentResolutionDate }}</td>
-                        <td>{{p.longitudeDelivery}}</td>
-                        <td>{{p.latitudeDelivery}}</td>
-                        <td>{{p.clientVo?.id}}</td>
-                        <td>{{p.adminVo?.id}}</td>
-                        <td>{{p.deliveryManVo?.id}}</td>
                         <td>{{p.dateSubmission}}</td>
-
-
+                        <td>{{p.cityVo?.name}}</td>
+                        <td>{{p.total}}
+                        <td><span
+                                [ngStyle]="{'background-color':p.orderStatusVo.color}"
+                                class="badge badge-pill"
+                                (click)="setCommandToChangeStatus(p)">{{p.orderStatusVo.code}}</span>
+                            <select *ngIf="p == commandToChangeStatus"
+                                    (change)="changeOrderStatus(p)"
+                                    [(ngModel)]="newStatus"
+                                    class="form-control">
+                                <option *ngFor="let d of orderStatusList"
+                                        [ngStyle]="{'background-color':d.color}"
+                                        [ngValue]="d"
+                                >{{d.label}}
+                                </option>
+                            </select>
+                        </td>
                         <td>
                             <button class="btn btn-danger btn-sm fa fa-trash mx-md-1" (click)="delete(p)"></button>
                             <button class="btn btn-warning btn-sm fa fa-external-link mx-md-1"
